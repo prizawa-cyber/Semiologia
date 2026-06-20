@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caderno de Semiologia I — Prof. Dr. João Vítor Galo Esteves</title>
+<style>
+:root{
+  --ink:#0d1b2a;--ink2:#2e4057;--paper:#f7f4ef;--cream:#ece8e0;
+  --rule:#c6bdb0;--A:#b5451b;--B:#1b6b8a;--C:#2a7d4f;--W:#c07900;
+  --r:8px;--serif:Georgia,serif;--sans:"Segoe UI",system-ui,sans-serif;
+  --mono:"Courier New",monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.68;max-width:1120px;margin:0 auto;padding:0 20px 80px}
+
+/* HEADER */
+.hdr{background:var(--ink);color:#fff;padding:42px 44px 32px;margin:0 -20px 56px;position:relative}
+.hdr::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--A),var(--B),var(--C),var(--W))}
+.hdr h1{font-family:var(--serif);font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:400;margin-bottom:6px}
+.hdr .sub{font-size:.8rem;opacity:.5;letter-spacing:.09em;text-transform:uppercase}
+.hdr .tip{margin-top:18px;background:rgba(192,121,0,.2);border:1px solid rgba(192,121,0,.4);border-radius:6px;padding:12px 18px;font-size:.87rem}
+.hdr .tip b{color:var(--W)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:3px 12px;border-radius:20px;font-size:.74rem;letter-spacing:.05em}
+
+/* PERFIL BOX */
+.perfil{background:var(--ink);color:#fff;border-radius:var(--r);padding:28px 32px;margin-bottom:50px}
+.perfil h2{font-family:var(--serif);font-size:1.05rem;color:var(--W);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.12)}
+.perfil-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.perfil-block h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:8px}
+.perfil-block p,.perfil-block li{font-size:.85rem;color:rgba(255,255,255,.8);line-height:1.6}
+.perfil-block ul{padding-left:18px}
+.perfil-block li{margin-bottom:4px}
+.bloom-chain{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.bloom-pill{background:rgba(27,107,138,.25);border:1px solid rgba(27,107,138,.4);color:#7ecbde;padding:3px 12px;border-radius:20px;font-size:.75rem;font-weight:600}
+
+/* TOC */
+.toc{background:var(--cream);border:1px solid var(--rule);border-radius:var(--r);padding:28px 32px;margin-bottom:50px}
+.toc h2{font-family:var(--serif);font-size:.92rem;color:var(--A);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:4px 22px}
+.toc a{color:var(--B);text-decoration:none;font-size:.87rem;padding:3px 0;display:flex;align-items:center;gap:8px}
+.toc a:hover{color:var(--A)}
+.toc a .n{font-family:var(--mono);font-size:.75rem;color:var(--rule)}
+
+/* CARDS */
+.card{background:#fff;border:1px solid var(--rule);border-radius:var(--r);margin-bottom:52px;box-shadow:0 2px 12px rgba(13,27,42,.09);overflow:hidden}
+.ch{background:var(--ink);color:#fff;padding:22px 30px;display:flex;align-items:flex-start;gap:16px;position:relative}
+.ch::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--A)}
+.cn{font-family:var(--mono);font-size:.7rem;background:rgba(255,255,255,.14);padding:2px 9px;border-radius:4px;margin-top:4px;flex-shrink:0}
+.ct{font-family:var(--serif);font-size:1.18rem;font-weight:400}
+.cs{font-size:.76rem;opacity:.55;margin-top:3px}
+.badge{display:inline-block;background:var(--W);color:#fff;font-size:.63rem;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:12px;margin-left:10px;text-transform:uppercase;vertical-align:middle}
+.cb{padding:30px}
+
+/* TABS */
+.tabs{display:flex;border-bottom:2px solid var(--rule);margin-bottom:26px;flex-wrap:wrap}
+.tb{background:none;border:none;padding:10px 15px;cursor:pointer;font-size:.82rem;font-family:var(--sans);color:var(--ink2);font-weight:500;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .18s}
+.tb:hover{color:var(--B)}
+.tb.on{color:var(--A);border-bottom-color:var(--A)}
+.tp{display:none}
+.tp.on{display:block}
+
+/* TYPOGRAPHY */
+h3{font-family:var(--serif);font-size:1rem;color:var(--B);margin:20px 0 10px;padding-bottom:4px;border-bottom:1px dashed var(--rule)}
+h4{font-size:.86rem;color:var(--ink2);margin:13px 0 6px;text-transform:uppercase;letter-spacing:.07em}
+p{margin-bottom:11px;font-size:.9rem}
+ul,ol{padding-left:20px;margin-bottom:11px}
+li{margin-bottom:5px;font-size:.9rem}
+strong{color:var(--ink)}
+em{color:var(--B);font-style:normal;font-weight:600}
+
+/* BOXES */
+.bx{border-radius:var(--r);padding:14px 18px;margin:14px 0;font-size:.88rem}
+.red{background:rgba(181,69,27,.08);border-left:4px solid var(--A)}
+.blue{background:rgba(27,107,138,.08);border-left:4px solid var(--B)}
+.grn{background:rgba(42,125,79,.08);border-left:4px solid var(--C)}
+.amb{background:rgba(192,121,0,.08);border-left:4px solid var(--W)}
+.dark{background:var(--ink);color:#fff;border-left:4px solid var(--A)}
+.bl{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.red .bl{color:var(--A)}.blue .bl{color:var(--B)}.grn .bl{color:var(--C)}.amb .bl{color:var(--W)}.dark .bl{color:rgba(255,255,255,.5)}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:13px 0;font-size:.86rem}
+th{background:var(--ink);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+td{padding:8px 12px;border-bottom:1px solid var(--cream)}
+tr:nth-child(even) td{background:var(--paper)}
+
+/* CHAIN */
+.chain{display:flex;flex-wrap:wrap;gap:0;margin:18px 0}
+.cs2{flex:1 1 120px;background:var(--ink2);color:#fff;padding:11px 13px;position:relative;font-size:.78rem}
+.cs2:nth-child(odd){background:var(--ink)}
+.cs2:not(:last-child)::after{content:"\2192";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--A);font-size:1.1rem;z-index:2}
+.cs2 .cl{font-size:.6rem;opacity:.5;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.cs2 .cv{font-weight:600;line-height:1.3}
+
+/* RED FLAGS */
+.rfg{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:9px;margin:12px 0}
+.rf{background:rgba(181,69,27,.07);border:1px solid rgba(181,69,27,.22);border-radius:6px;padding:10px 13px;font-size:.83rem;display:flex;align-items:flex-start;gap:8px}
+.rf::before{content:"\26A0";color:var(--A);flex-shrink:0}
+
+/* WAVE (jugular) */
+.wc{background:var(--ink);border-radius:var(--r);padding:20px;margin:14px 0;overflow-x:auto}
+.wr{display:flex;align-items:stretch;min-width:560px}
+.ww{flex:1;text-align:center;border-right:1px solid rgba(255,255,255,.08);padding:4px}
+.ww:last-child{border-right:none}
+.wl{font-size:.68rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.06em;padding-bottom:6px}
+.wn{font-size:1.15rem;font-weight:700;padding-bottom:4px}
+.wd{font-size:.74rem;color:rgba(255,255,255,.72);line-height:1.4;padding:0 4px}
+
+/* DRUG GRID */
+.dg{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:12px;margin:14px 0}
+.dc{border:1px solid var(--rule);border-radius:var(--r);padding:14px;background:var(--paper)}
+.dn{font-weight:700;color:var(--B);font-size:.88rem;margin-bottom:6px}
+.dm{font-size:.79rem;line-height:1.52}
+
+/* QUESTIONS */
+.qs{background:var(--ink);color:#fff;border-radius:var(--r);padding:42px;margin-top:68px}
+.qs h2{font-family:var(--serif);font-size:1.45rem;margin-bottom:5px}
+.qs .sub2{font-size:.78rem;opacity:.45;margin-bottom:38px;letter-spacing:.05em}
+.qc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:26px;margin-bottom:30px}
+.qh{display:flex;align-items:flex-start;gap:12px;margin-bottom:13px}
+.qn{background:var(--A);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.77rem;font-weight:700;flex-shrink:0}
+.qm{font-size:.69rem;color:rgba(255,255,255,.38);line-height:2}
+.qm span{margin-right:10px}
+.qv{background:rgba(255,255,255,.06);border-left:3px solid var(--B);padding:13px 16px;font-size:.86rem;margin-bottom:15px;border-radius:0 4px 4px 0;line-height:1.65;color:rgba(255,255,255,.83)}
+.qs2{font-size:.91rem;line-height:1.72;color:rgba(255,255,255,.9);margin-bottom:17px}
+.qo{list-style:none;padding:0}
+.qo li{padding:10px 14px;border:1px solid rgba(255,255,255,.09);border-radius:6px;margin-bottom:8px;font-size:.86rem;color:rgba(255,255,255,.78);cursor:pointer;transition:all .18s;display:flex;gap:10px;align-items:flex-start}
+.qo li:hover{background:rgba(255,255,255,.07);border-color:var(--B)}
+.qo li.C{background:rgba(42,125,79,.2);border-color:var(--C);color:#fff}
+.qo li.W{background:rgba(181,69,27,.2);border-color:var(--A)}
+.ql{font-weight:700;flex-shrink:0;color:rgba(255,255,255,.38)}
+.qo li.C .ql{color:var(--C)}
+.qo li.W .ql{color:var(--A)}
+.gb{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.55);padding:7px 18px;border-radius:20px;font-size:.77rem;cursor:pointer;margin-top:11px;transition:all .18s}
+.gb:hover{background:rgba(255,255,255,.07);color:#fff}
+.gp{display:none;margin-top:15px;background:rgba(255,255,255,.04);border-radius:6px;padding:15px;font-size:.83rem;line-height:1.65;color:rgba(255,255,255,.78)}
+.gp h5{color:var(--C);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+
+@media(max-width:640px){.cb{padding:16px}.qs{padding:20px 16px}.tb{padding:7px 9px;font-size:.78rem}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <h1>Caderno de Semiologia I — Edição Definitiva 2026</h1>
+  <p class="sub">Prof. Dr. João Vítor Galo Esteves · UFRJ/Lisboa · Faculdade CENSUPEG · 3.º Ano Medicina 2026/1</p>
+  <div class="tip"><b>★ Dica direta do Professor:</b> "Estudem ondas venosas na jugular, principalmente ondas <b>'a' em canhão</b> e ondas <b>'v' gigantes</b>" — módulo dedicado dentro deste caderno.</div>
+  <div class="tags">
+    <span class="tag">Ondas Jugulares ★ PROVA</span>
+    <span class="tag">IRA — KDIGO/RIFLE</span>
+    <span class="tag">Hipolipemiantes SBC 2025 + ACC/AHA 2026</span>
+    <span class="tag">Isquemia Mesentérica</span>
+    <span class="tag">Semiologia Cardiovascular + Respiratória</span>
+    <span class="tag">20 Questões Padrão-Exato Prof. João</span>
+  </div>
+</header>
+
+<!-- PERFIL DO PROFESSOR -->
+<div class="perfil">
+  <h2>🎓 Perfil do Professor — Como Estudar para Este Exame</h2>
+  <div class="perfil-grid">
+    <div class="perfil-block">
+      <h3>Identidade Acadêmica</h3>
+      <ul>
+        <li>Médico UFRJ (2013–2020); Mestrado Integrado em Medicina — Universidade de Lisboa (2023)</li>
+        <li>Doutorado em andamento — Neurobiologia/IBCCF-UFRJ</li>
+        <li>Especialização em Docência no Ensino Superior — CENSUPEG</li>
+        <li>Docente e Coordenador de Semiologia I — 3.º Ano Medicina 2026/1</li>
+      </ul>
+    </div>
+    <div class="perfil-block">
+      <h3>Filosofia de Ensino</h3>
+      <p style="color:rgba(255,255,255,.8);font-size:.85rem">"A verdadeira perícia diagnóstica exige raciocínio lógico, abstração semântica, empirismo e profunda inteligência emocional."</p>
+      <p style="color:rgba(255,255,255,.8);font-size:.85rem">Ele <strong style="color:#fff">não ensina conteúdo — ensina raciocínio</strong>. Toda resposta precisa mostrar por que o conjunto de achados aponta para aquela síndrome, e não para as concorrentes.</p>
+    </div>
+    <div class="perfil-block">
+      <h3>Padrão das Questões</h3>
+      <ul>
+        <li>Vinheta clínica real e detalhada (sexo, idade, queixa, exame físico completo)</li>
+        <li>Enunciado de integração: "Considerando a integração entre semiologia, anatomia e fisiopatologia..."</li>
+        <li>5 alternativas clinicamente plausíveis — são armadilhas conceituais, não absurdos</li>
+        <li>Feedback extenso desconstruindo cada distrator</li>
+      </ul>
+      <div class="bloom-chain">
+        <span class="bloom-pill">Análise</span>
+        <span class="bloom-pill">Avaliação</span>
+        <span class="bloom-pill">Dificuldade: MD</span>
+      </div>
+    </div>
+    <div class="perfil-block">
+      <h3>O Que Ele Espera Ver na Resposta</h3>
+      <ul>
+        <li><strong style="color:#fff">Raciocínio em camadas</strong>: topográfico → fisiopatológico → sindrômico → nosológico → etiológico</li>
+        <li><strong style="color:#fff">Justificativa mecanística</strong> — não basta nomear a síndrome</li>
+        <li><strong style="color:#fff">Diferenciação ativa</strong> — explique por que as outras hipóteses foram afastadas</li>
+        <li><strong style="color:#fff">Linguagem técnica precisa</strong> com sentido contextual</li>
+        <li><strong style="color:#fff">Integração horizontal</strong> — semiologia + histologia + fisiologia + patologia</li>
+      </ul>
+    </div>
+    <div class="perfil-block">
+      <h3>O Que é Resposta Incompleta</h3>
+      <ul>
+        <li>Nomear a síndrome sem explicar por que os achados apontam para ela</li>
+        <li>Lista de achados sem encadeamento lógico</li>
+        <li>Não afastar ativamente os diagnósticos concorrentes</li>
+        <li>Usar termos técnicos sem sentido fisiopatológico contextualizado</li>
+        <li>Reproduzir definições memorizadas sem aplicação ao caso</li>
+      </ul>
+    </div>
+    <div class="perfil-block">
+      <h3>Referências Principais</h3>
+      <ul>
+        <li>Porto — Semiologia Médica, 8ª ed.</li>
+        <li>Bates — Propedêutica Médica, 12ª ed.</li>
+        <li>Stewart — Medicina Centrada na Pessoa</li>
+        <li>SBC 2025 (Arq Bras Cardiol. 2025;122(9):e20250640)</li>
+        <li>ACC/AHA 2026 (Circulation. 2026;153:e1154)</li>
+        <li>KDIGO 2012 · WSES IMA 2022 · SVS IMC 2021</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+  <h2>📋 Índice</h2>
+  <div class="toc-grid">
+    <a href="#s01"><span class="n">01</span>Semiologia Respiratória</a>
+    <a href="#s02"><span class="n">02</span>IAM / Síndromes Coronarianas</a>
+    <a href="#s03"><span class="n">03</span>Insuficiência Cardíaca</a>
+    <a href="#s04"><span class="n">04</span>Dor Torácica</a>
+    <a href="#s05"><span class="n">05</span>Arritmias / SQTL</a>
+    <a href="#s06"><span class="n">06</span>DAOP</a>
+    <a href="#s07"><span class="n">07</span>TVP</a>
+    <a href="#s08"><span class="n">08</span>Isquemia Mesentérica</a>
+    <a href="#s09"><span class="n">09</span>Apendicite Aguda</a>
+    <a href="#s10"><span class="n">10</span>Cirrose / MASLD</a>
+    <a href="#s11"><span class="n">11 ★</span>Ondas Venosas Jugulares</a>
+    <a href="#s12"><span class="n">12</span>Injúria Renal Aguda</a>
+    <a href="#s13"><span class="n">13</span>Hipolipemiantes</a>
+    <a href="#qs"><span class="n">★</span>20 Questões Padrão-Prova</a>
+  </div>
+</nav>
+
+<!-- ===== 01 SEMIOLOGIA RESPIRATÓRIA ===== -->
+<section class="card" id="s01">
+  <div class="ch"><span class="cn">01</span><div><div class="ct">Semiologia Respiratória</div><div class="cs">Síndromes Obstrutiva · Restritiva · Condensação · Derrame · Pneumotórax</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'r01a')">Semiotécnica</button>
+      <button class="tb" onclick="T(this,'r01b')">5 Síndromes</button>
+      <button class="tb" onclick="T(this,'r01c')">Integração</button>
+    </div>
+
+    <div class="tp on" id="r01a">
+      <h3>Sequência do Exame Físico Respiratório</h3>
+      <p>O exame físico respiratório segue sempre a sequência inspeção → palpação → percussão → ausculta (IPPA), sendo obrigatória a comparação bilateral e simétrica.</p>
+      <h4>Inspeção</h4>
+      <ul>
+        <li><strong>Expansibilidade torácica</strong>: simétrica ou assimétrica (reduzida no lado comprometido em derrame, pneumotórax, condensação)</li>
+        <li><strong>Tiragem</strong>: retração de espaços intercostais = aumento do trabalho respiratório (obstrutivo grave, estridor)</li>
+        <li><strong>Tórax em barril</strong>: diâmetro AP aumentado = aprisionamento de ar crônico (DPOC, asma grave)</li>
+        <li><strong>Cianose</strong>: central (lábios, língua) = hipoxemia grave; periférica = vasoconstrição</li>
+      </ul>
+      <h4>Palpação</h4>
+      <ul>
+        <li><strong>Expansibilidade palmar</strong>: mãos sobre base posterior, polegar na linha vertebral; redução ipsilateral = condensação, derrame, pneumotórax</li>
+        <li><strong>Frêmito tóraco-vocal (FTV)</strong>: paciente fala "trinta e três"; vibração transmitida à mão. <em>Aumentado</em> = condensação (síndrome de condensação); <em>diminuído/abolido</em> = derrame pleural, pneumotórax, obstrução brônquica; <em>normal</em> = síndrome obstrutiva</li>
+      </ul>
+      <h4>Percussão</h4>
+      <ul>
+        <li><strong>Som claro pulmonar</strong>: normal</li>
+        <li><strong>Macicez</strong>: derrame pleural, condensação (som mate = sem ar)</li>
+        <li><strong>Hipersonoridade/timpanismo</strong>: pneumotórax, enfisema (ar em excesso)</li>
+      </ul>
+      <h4>Ausculta</h4>
+      <ul>
+        <li><strong>Murmúrio vesicular (MV)</strong>: som normal do ar nas vias aéreas distais; <em>reduzido</em> = enfisema, derrame, pneumotórax; <em>abolido</em> = pneumotórax hipertensivo, derrame volumoso</li>
+        <li><strong>Sopro tubário</strong>: som brônquico transmitido ao parênquima condensado — patognomônico de condensação (pneumonia lobar, TB com consolidação)</li>
+        <li><strong>Crepitações finas</strong>: abertura de alvéolos colabados na inspiração (edema pulmonar, fibrose, pneumonia); não limpam com tosse</li>
+        <li><strong>Roncos</strong>: secreção em grandes vias aéreas; limpam com tosse</li>
+        <li><strong>Sibilos</strong>: estreitamento de médias/pequenas vias aéreas (broncoespasmo, asma, DPOC); pior na expiração; <em>não limpam com tosse</em></li>
+        <li><strong>Atrito pleural</strong>: fricção das folhas pleurais inflamadas; inspiração E expiração; superficial, localizado</li>
+        <li><strong>Egofonia / pectorilóquia áfona</strong>: fala ressoa com qualidade de "bé bé" acima de derrame ou em borda de condensação</li>
+      </ul>
+    </div>
+
+    <div class="tp" id="r01b">
+      <h3>As 5 Síndromes Respiratórias — Comparativo Completo</h3>
+      <table>
+        <tr><th>Síndrome</th><th>FTV</th><th>Percussão</th><th>MV</th><th>Ausculta Especial</th><th>Causa Protótipo</th></tr>
+        <tr><td><strong>Condensação (Consolidação)</strong></td><td>↑ Aumentado</td><td>Macicez</td><td>Reduzido ou ausente</td><td>Sopro tubário + crepitações finas + egofonia</td><td>Pneumonia lobar, TB</td></tr>
+        <tr><td><strong>Derrame Pleural</strong></td><td>↓ Abolido</td><td>Macicez intensa ("pedra")</td><td>Abolido na base; egofonia acima</td><td>Ausência de MV + egofonia acima do derrame</td><td>IC, neoplasia, TB</td></tr>
+        <tr><td><strong>Pneumotórax</strong></td><td>↓ Abolido</td><td>Hipersonoridade/timpanismo</td><td>Abolido</td><td>Ausência de MV; desvio de traqueia (hipertensivo)</td><td>Espontâneo, trauma, iatrogênico</td></tr>
+        <tr><td><strong>Obstrutiva (Asma/DPOC)</strong></td><td>Normal</td><td>Normal (asma) ou Hipersonoridade (enfisema)</td><td>Reduzido (enfisema) ou ↑ (asma aguda)</td><td>Sibilos expiratórios; tórax em barril; tiragem</td><td>Asma, DPOC</td></tr>
+        <tr><td><strong>Fibrose/Restritiva</strong></td><td>Normal ou ↑</td><td>Normal</td><td>Reduzido nas bases</td><td>Crepitações finas bibasais ("velcro"); sem sibilos</td><td>FPI, sarcoidose</td></tr>
+      </table>
+      <div class="bx red"><div class="bl">Pérola Clínica — Sopro Tubário</div>O sopro tubário é som brônquico transmitido ao parênquima condensado (não há ar para atenuar). É o marcador de condensação com brônquio PÉRVIO. Se o brônquio estiver obstruído (atelectasia), não há sopro tubário — o MV é abolido e o FTV diminuído.</div>
+      <div class="bx amb"><div class="bl">Derrame vs Condensação — Confusão Clássica</div>
+        Ambos têm macicez e MV reduzido. Mas: FTV abolido = derrame; FTV aumentado = condensação. Egofonia acima do nível do derrame (transição ar/líquido) ou sobre condensação. O sopro tubário só existe na condensação com brônquio pérvio.
+      </div>
+    </div>
+
+    <div class="tp" id="r01c">
+      <h3>Raciocínio em Camadas — Como o Prof. João Quer</h3>
+      <div class="chain">
+        <div class="cs2"><div class="cl">Topográfico</div><div class="cv">Lobo? Segmento? Pleura? Parênquima? Via aérea?</div></div>
+        <div class="cs2"><div class="cl">Fisiopatológico</div><div class="cv">Consolidação alveolar / líquido pleural / broncoespasmo / fibrose</div></div>
+        <div class="cs2"><div class="cl">Sindrômico</div><div class="cv">Condensação / Derrame / Obstrutiva / Restritiva / Pneumotórax</div></div>
+        <div class="cs2"><div class="cl">Nosológico</div><div class="cv">Pneumonia / IC / Asma / FPI / TEP...</div></div>
+        <div class="cs2"><div class="cl">Etiológico</div><div class="cv">Pneumococo / Klebsiella / Vírus / Fumo / Autoimune</div></div>
+      </div>
+      <div class="bx blue"><div class="bl">A Pergunta Central do Prof. João</div>"Por que esse conjunto de achados aponta para síndrome de condensação — e não para derrame pleural?" <br>Resposta esperada: FTV aumentado (transmissão sólida do som) + macicez (sem ar) + sopro tubário (brônquio pérvio) + crepitações finas = condensação. Derrame teria FTV abolido + macicez intensa + ausência total de sopro tubário.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 IAM ===== -->
+<section class="card" id="s02">
+  <div class="ch"><span class="cn">02</span><div><div class="ct">Infarto Agudo do Miocárdio / SCA</div><div class="cs">Síndrome Coronariana Aguda · IAMCSST · IAMSSST · Killip</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'i02a')">Fisiopatologia</button>
+      <button class="tb" onclick="T(this,'i02b')">Semiologia</button>
+      <button class="tb" onclick="T(this,'i02c')">Diagnóstico</button>
+      <button class="tb" onclick="T(this,'i02d')">Red Flags</button>
+    </div>
+    <div class="tp on" id="i02a">
+      <ol>
+        <li><strong>Placa vulnerável</strong>: capa fibrosa fina + núcleo lipídico + macrófagos ativados (MMP)</li>
+        <li><strong>Rotura</strong>: colágeno exposto + fator tecidual → ativação plaquetária (IIb/IIIa) + cascata coagulação → trombo</li>
+        <li><strong>Oclusão</strong>: queda O₂ → falência mitocondrial (ATP↓) → acidose → necrose (4–6h até transmural)</li>
+        <li><strong>Remodelamento</strong>: inflamação pós-necrótica → fibrose → disfunção VE</li>
+      </ol>
+      <div class="bx amb"><div class="bl">Tempo = Músculo</div>Cada 30 min de atraso ≈ 1% de miocárdio perdido (GUSTO). Meta ICP primária ≤90 min do 1.º contato médico.</div>
+      <table>
+        <tr><th>SCA</th><th>Troponina</th><th>ECG</th><th>Urgência</th></tr>
+        <tr><td>Angina Instável</td><td>Indetectável</td><td>Infra ST / T invertida / normal</td><td>Alta</td></tr>
+        <tr><td>IAMSSST</td><td>↑ dinâmica</td><td>Infra ST; pode ser normal</td><td>Muito alta (≤24h)</td></tr>
+        <tr><td>IAMCSST</td><td>↑↑ intensa</td><td>Supra ST ≥1mm ≥2 derivações ou BRE novo</td><td>Emergência (≤90 min)</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="i02b">
+      <h3>Ausculta Cardíaca</h3>
+      <table>
+        <tr><th>Bulha</th><th>Mecanismo</th><th>Significado Clínico</th></tr>
+        <tr><td><strong>B3 (galope protodiastólico)</strong></td><td>VE dilatado/flácido vibra no enchimento rápido</td><td>Disfunção sistólica — Killip II/III</td></tr>
+        <tr><td><strong>B4 (galope pré-sistólico)</strong></td><td>VE rígido recebe contração atrial</td><td>Disfunção diastólica / isquemia aguda — ancora diagnóstico cardiogênico</td></tr>
+        <tr><td>Sopro sistólico novo</td><td>Rotura músculo papilar / CIV</td><td>Complicação mecânica — urgência cirúrgica</td></tr>
+      </table>
+      <h3>Classificação de Killip</h3>
+      <table>
+        <tr><th>Killip</th><th>Achado</th><th>Mortalidade hospitalar</th></tr>
+        <tr><td>I</td><td>Pulmões limpos; sem B3</td><td>~6%</td></tr>
+        <tr><td>II</td><td>Estertores basais + B3 ou B4 + PVJ ↑</td><td>~17%</td></tr>
+        <tr><td>III</td><td>Edema agudo de pulmão (estertores difusos)</td><td>~35%</td></tr>
+        <tr><td>IV</td><td>Choque cardiogênico (hipotensão + hipoperfusão)</td><td>~70%</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="i02c">
+      <div class="bx blue"><div class="bl">Tríade Diagnóstica</div>1. Clínica típica · 2. ECG em ≤10 min · 3. Troponina ultrassensível seriada (protocolo 0/1h ou 0/3h)</div>
+      <table>
+        <tr><th>Diagnóstico Diferencial</th><th>Como Afastar do IAM</th></tr>
+        <tr><td>Dissecção de aorta</td><td>Dor "rasgamento", máxima no início, irradia ao dorso; PA assimétrica; alargamento mediastinal; NÃO anticoagular</td></tr>
+        <tr><td>TEP maciço</td><td>Dispneia súbita; S1Q3T3; supra em aVR; troponina ↑ por distensão VD (sem hipocinesia segmentar VE)</td></tr>
+        <tr><td>Pericardite aguda</td><td>Dor pleurítica (piora ao deitar); supra côncavo difuso sem imagem especular; atrito pericárdico</td></tr>
+        <tr><td>Síndrome de Takotsubo</td><td>Pós-estresse emocional; mulheres pós-menopausa; discinesia apical; coronárias normais</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="i02d">
+      <div class="rfg">
+        <div class="rf">B4 em foco mitral + troponina em curva = IAM com disfunção diastólica isquêmica</div>
+        <div class="rf">Sopro sistólico novo pós-dor = complicação mecânica (IM aguda / CIV)</div>
+        <div class="rf">BRE novo = IAMCSST equivalente → ICP imediata</div>
+        <div class="rf">Supra ST + hipotensão + PVJ ↑ sem crepitantes = IAM de VD → NITRATO CONTRAINDICADO</div>
+        <div class="rf">Dor em rasgamento + PA assimétrica = dissecção → NÃO ANTICOAGULAR antes de excluir</div>
+        <div class="rf">Diaforese fria + náusea + dispneia em diabético/idoso = IAM atípico</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== 03 ICC ===== -->
+<section class="card" id="s03">
+  <div class="ch"><span class="cn">03</span><div><div class="ct">Insuficiência Cardíaca (ICC)</div><div class="cs">ICFEr vs ICFEp · Semiologia esquerda/direita · PVJ · Tratamento ESC 2021</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'i03a')">Fisiopatologia</button>
+      <button class="tb" onclick="T(this,'i03b')">Semiologia</button>
+      <button class="tb" onclick="T(this,'i03c')">Tratamento</button>
+    </div>
+    <div class="tp on" id="i03a">
+      <h3>ICFEr vs ICFEp</h3>
+      <table>
+        <tr><th>Parâmetro</th><th>ICFEr (FEVE &lt;40%)</th><th>ICFEp (FEVE ≥50%)</th></tr>
+        <tr><td>Mecanismo principal</td><td>Disfunção sistólica: VE não contrai adequadamente</td><td>Disfunção diastólica: VE não relaxa adequadamente</td></tr>
+        <tr><td>Bulha extra típica</td><td><strong>B3</strong> — VE dilatado e flácido vibra no enchimento rápido</td><td><strong>B4</strong> — VE rígido recebe contração atrial forçada</td></tr>
+        <tr><td>Perfil do paciente</td><td>Pós-IAM, miocardiopatia dilatada, valvopatia</td><td>Hipertensa, idosa, diabética, obesa</td></tr>
+        <tr><td>RX tórax</td><td>Cardiomegalia + congestão pulmonar</td><td>Pode ter coração de tamanho normal</td></tr>
+      </table>
+      <h3>Fisiopatologia em Cascata</h3>
+      <ol>
+        <li><strong>↓ Débito cardíaco</strong> → ativação de SRAA e sistema simpático</li>
+        <li><strong>Retenção de Na⁺/H₂O</strong> → sobrecarga de volume → ↑ pressão de enchimento</li>
+        <li><strong>Congestão retrógrada</strong>: esquerda (pulmão) → dispneia, ortopneia, DPN; direita (sistêmica) → edema, turgência jugular, hepatomegalia</li>
+      </ol>
+    </div>
+    <div class="tp" id="i03b">
+      <h3>Semiologia por Câmara</h3>
+      <table>
+        <tr><th>Achado</th><th>Mecanismo</th><th>Câmara</th></tr>
+        <tr><td>Dispneia, ortopneia, DPN</td><td>Congestão venosa pulmonar por ↑ pressão de enchimento do VE</td><td>IC esquerda</td></tr>
+        <tr><td>Estertores crepitantes bibasais</td><td>Transudato alveolar por ↑ pressão capilar pulmonar</td><td>IC esquerda</td></tr>
+        <tr><td><strong>B3</strong> em foco mitral</td><td>VE dilatado e flácido (ICFEr)</td><td>IC esquerda</td></tr>
+        <tr><td><strong>B4</strong> em foco mitral</td><td>VE rígido recebe contração atrial (ICFEp / isquemia)</td><td>IC esquerda</td></tr>
+        <tr><td>Turgência jugular (PVJ ↑)</td><td>↑ pressão venosa central por falência direita</td><td>IC direita</td></tr>
+        <tr><td>Edema de MMII simétrico com cacifo</td><td>Retenção de Na⁺/H₂O + ↑ pressão hidrostática venosa</td><td>IC direita</td></tr>
+        <tr><td>Hepatomegalia dolorosa + refluxo hepatojugular</td><td>Congestão hepática por ↑ pressão venosa sistêmica</td><td>IC direita</td></tr>
+        <tr><td>Ascite</td><td>IC direita grave → hipertensão portal sinusoidal</td><td>IC direita grave</td></tr>
+      </table>
+      <div class="bx blue"><div class="bl">PVJ na ICC</div>Medir sempre a 45°. PVJ elevada = IC direita ou biventricular. Refluxo hepatojugular positivo (PVJ sobe e sustenta ≥10s com compressão hepática) = sensibilidade aumentada para IC direita.</div>
+    </div>
+    <div class="tp" id="i03c">
+      <h3>Quádrupla Terapia (ICFEr) — ESC 2021</h3>
+      <table>
+        <tr><th>Pilar</th><th>Fármaco</th><th>Mecanismo</th><th>↓ Mortalidade</th></tr>
+        <tr><td>1</td><td>Betabloqueador (carvedilol, bisoprolol, metoprolol XL)</td><td>↓ FC e pós-carga; remodelamento reverso</td><td>~34%</td></tr>
+        <tr><td>2</td><td>IECA / BRA (enalapril, sacubitril/valsartana)</td><td>Bloqueio do SRAA; reduz pré e pós-carga</td><td>~23%</td></tr>
+        <tr><td>3</td><td>ARM (espironolactona, eplerenona)</td><td>Bloqueia aldosterona → ↓ fibrose miocárdica</td><td>~30%</td></tr>
+        <tr><td>4</td><td>iSGLT2 (dapagliflozina, empagliflozina)</td><td>Diurese osmótica + efeitos cardioprotetores diretos</td><td>~25%</td></tr>
+      </table>
+      <div class="bx grn"><div class="bl">Mnemônico — BISA</div><strong>B</strong>etabloqueador + <strong>I</strong>ECA/BRA/Sacubitril + <strong>S</strong>pironolactona/ARM + <strong>A</strong>gente iSGLT2</div>
+      <div class="bx amb"><div class="bl">Diuréticos</div>Furosemida IV/oral controla os <em>sintomas</em> congestionantes, mas não reduz mortalidade. Usar apenas para aliviar congestão, com monitoramento rigoroso de eletrólitos e função renal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 DOR TORÁCICA ===== -->
+<section class="card" id="s04">
+  <div class="ch"><span class="cn">04</span><div><div class="ct">Dor Torácica</div><div class="cs">PQRSTA · Big 5 que Matam · Algoritmo Semiológico</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'d04a')">PQRSTA + Big 5</button>
+      <button class="tb" onclick="T(this,'d04b')">Diferencial Integrado</button>
+    </div>
+    <div class="tp on" id="d04a">
+      <h3>Avaliação Semiológica — PQRSTA</h3>
+      <table>
+        <tr><th>Letra</th><th>Pergunta</th><th>Relevância</th></tr>
+        <tr><td><strong>P</strong>recipitante</td><td>O que provoca e o que alivia?</td><td>Esforço = anginosa; decúbito = pericardite/DRGE</td></tr>
+        <tr><td><strong>Q</strong>ualidade</td><td>Como é a dor?</td><td>Aperto/pressão = IAM; rasgamento = dissecção; queimação = DRGE</td></tr>
+        <tr><td><strong>R</strong>adiação</td><td>Para onde irradia?</td><td>Braço E/mandíbula = IAM; dorso máximo = dissecção; cervical = DRGE</td></tr>
+        <tr><td><strong>S</strong>everidade</td><td>Intensidade 0–10</td><td>Máxima no início = dissecção; progressiva = IAM; pleurítica = TEP/pericardite</td></tr>
+        <tr><td><strong>T</strong>empo</td><td>Início, duração, evolução</td><td>&gt;20 min sem alívio = IAM; segundos/posicionais = musculoesquelético</td></tr>
+        <tr><td><strong>A</strong>ssociados</td><td>Dispneia, diaforese, náusea, síncope</td><td>Diaforese fria + náusea = IAM; hemoptise = TEP; síncope = dissecção</td></tr>
+      </table>
+      <h3>Big 5 — As que Matam se Não Reconhecidas</h3>
+      <table>
+        <tr><th>Diagnóstico</th><th>Pista Chave</th><th>Red Flag Específico</th></tr>
+        <tr><td><strong>IAM</strong></td><td>Aperto retroesternal &gt;20 min, irradia para MS e mandíbula</td><td>Supra ST ou BRE novo + troponina em curva</td></tr>
+        <tr><td><strong>Dissecção de Aorta</strong></td><td>Rasgamento máximo no início, irradia ao dorso</td><td>PA assimétrica, alargamento mediastinal → NÃO anticoagular</td></tr>
+        <tr><td><strong>TEP</strong></td><td>Dispneia súbita, pleurítca, hemoptise, fatores de risco trombóticos</td><td>S1Q3T3, D-dímero ↑, hipoxemia</td></tr>
+        <tr><td><strong>Pneumotórax Hipertensivo</strong></td><td>Dispneia súbita, desvio de traqueia, ausência de MV</td><td>Hipotensão + turgência jugular + desvio traqueal = emergência</td></tr>
+        <tr><td><strong>Tamponamento Cardíaco</strong></td><td>Tríade de Beck: hipotensão + bulhas abafadas + JVP ↑</td><td>Pulso paradoxal &gt;10 mmHg, baixa voltagem ECG</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="d04b">
+      <h3>Algoritmo Semiológico Integrado</h3>
+      <table>
+        <tr><th>Característica</th><th>IAM</th><th>Dissecção Ao.</th><th>TEP</th><th>Pericardite</th><th>DRGE</th></tr>
+        <tr><td>Qualidade</td><td>Aperto/pressão</td><td>Rasgamento</td><td>Pleurítica</td><td>Pleurítica</td><td>Queimação</td></tr>
+        <tr><td>Início</td><td>Progressivo</td><td>Máximo imediato</td><td>Súbito</td><td>Progressivo</td><td>Pós-prandial</td></tr>
+        <tr><td>Irradiação</td><td>MS E, mandíbula</td><td>Dorso, lombar</td><td>Ombro ipsilateral</td><td>Trapézio E</td><td>Pescoço, boca</td></tr>
+        <tr><td>Alívio</td><td>Nitrato (parcial)</td><td>Nenhum</td><td>Posição sentada</td><td>Sentado/inclinado</td><td>Antiácidos</td></tr>
+        <tr><td>ECG</td><td>Supra/infra ST</td><td>Inespecífico</td><td>S1Q3T3</td><td>Supra côncavo difuso</td><td>Normal</td></tr>
+        <tr><td>Troponina</td><td>↑↑ (curva)</td><td>Pode ↑ levemente</td><td>Pode ↑ (VD)</td><td>↑ leve</td><td>Normal</td></tr>
+      </table>
+      <div class="bx red"><div class="bl">Regra de Ouro da Dor Torácica</div>Todo paciente com dor torácica aguda deve ter IAM, dissecção de aorta e TEP excluídos ativamente antes de qualquer outro diagnóstico. Nunca assumir causa benigna sem investigação mínima (ECG + troponina + RX).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 ARRITMIAS / SQTL ===== -->
+<section class="card" id="s05">
+  <div class="ch"><span class="cn">05</span><div><div class="ct">Arritmias / Síndrome do QT Longo (SQTL2)</div><div class="cs">Canal hERG/IKr · EADs · Torsade de Pointes · Manejo</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'a05a')">SQTL2 — Fisiopatologia</button>
+      <button class="tb" onclick="T(this,'a05b')">Torsade de Pointes</button>
+      <button class="tb" onclick="T(this,'a05c')">Manejo</button>
+    </div>
+    <div class="tp on" id="a05a">
+      <h3>Canal hERG e Corrente IKr</h3>
+      <p>O canal hERG (gene KCNH2) codifica a subunidade α do canal de potássio responsável pela corrente IKr (rapid delayed rectifier K⁺ current) — corrente essencial para a <strong>repolarização ventricular</strong> na fase 3 do potencial de ação.</p>
+      <ul>
+        <li>IKr ativo → K⁺ sai da célula → repolarização → encurtamento do QT</li>
+        <li>Bloqueio de IKr (hERG) → repolarização atrasada → <strong>alargamento do QT</strong></li>
+        <li>QTc prolongado &gt;450 ms (homens) / &gt;470 ms (mulheres) = SQTL</li>
+      </ul>
+      <h3>SQTL Tipos — Resumo</h3>
+      <table>
+        <tr><th>Tipo</th><th>Gene</th><th>Canal</th><th>Gatilho</th></tr>
+        <tr><td>SQTL1</td><td>KCNQ1</td><td>IKs</td><td>Exercício, imersão em água fria</td></tr>
+        <tr><td><strong>SQTL2</strong></td><td><strong>KCNH2 (hERG)</strong></td><td><strong>IKr</strong></td><td><strong>Estímulo auditivo súbito, estresse emocional, despertar</strong></td></tr>
+        <tr><td>SQTL3</td><td>SCN5A</td><td>INa</td><td>Bradicardia, sono</td></tr>
+      </table>
+      <div class="bx red"><div class="bl">Por Que Amiodarona é Contraindicada no SQTL2</div>A amiodarona bloqueia múltiplos canais iônicos, incluindo IKr (hERG) — isso prolonga ainda mais o QT e aumenta o risco de Torsade de Pointes. Usá-la em SQTL2 é potencialmente letal.</div>
+    </div>
+    <div class="tp" id="a05b">
+      <h3>EADs e Mecanismo da Torsade de Pointes</h3>
+      <ol>
+        <li><strong>QT prolongado</strong> → potencial de ação ventricular longo</li>
+        <li><strong>EADs (Early Afterdepolarizações)</strong>: oscilações de membrana na fase 2–3 do PA por reativação de canais de Ca²⁺ (ICaL)</li>
+        <li>EAD atinge limiar → disparo ectópico → <strong>Torsade de Pointes</strong> (TdP): TV polimórfica com rotação do eixo QRS em torno da linha de base</li>
+        <li>TdP → pode degenerar em FV → morte súbita</li>
+      </ol>
+      <div class="bx blue"><div class="bl">ECG da Torsade de Pointes</div>TV polimórfica com QRS que muda de amplitude e polaridade progressivamente ("gira" em torno da linha isoelétrica). Precede ou sucede o intervalo QT prolongado. Distingue-se da FV pela morfologia organizada.</div>
+      <div class="bx amb"><div class="bl">Drogas que Prolongam o QT</div>
+        Antiarrítmicos (quinidina, sotalol, <strong>amiodarona</strong>), antibióticos (azitromicina, fluoroquinolonas), antipsicóticos (haloperidol, quetiapina), antihistamínicos, ondansetrona, ACO combinado em associações de risco.
+      </div>
+    </div>
+    <div class="tp" id="a05c">
+      <h3>Manejo da TdP e SQTL2</h3>
+      <h4>Agudo — TdP</h4>
+      <ul>
+        <li><strong>Sulfato de magnésio IV</strong> 2g em 5–10 min → inibe canais de Ca²⁺ → suprime EADs → 1.ª linha</li>
+        <li>Retirar a droga causadora imediatamente</li>
+        <li>Corrigir hipocalemia e hipomagnesemia</li>
+        <li>Se bradicardia: marcapasso temporário para ↑ FC (↓ QT por encurtamento da diástole)</li>
+        <li>TV instável/FV → desfibrilação imediata</li>
+      </ul>
+      <h4>Crônico — SQTL2 Congênita</h4>
+      <ul>
+        <li><strong>Betabloqueador</strong> (propranolol ou nadolol) — reduz gatilhos adrenérgicos (estímulos auditivos, estresse)</li>
+        <li><strong>CDI</strong> (Cardioversor-Desfibrilador Implantável) em sobreviventes de PCR ou síncope recorrente com betabloqueador</li>
+        <li><strong>LCSD</strong> (Denervação cardíaca simpática esquerda) em refratários ao betabloqueador sem indicação de CDI</li>
+        <li>Evitar todas as drogas que prolongam QT; evitar esportes competitivos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 DAOP ===== -->
+<section class="card" id="s06">
+  <div class="ch"><span class="cn">06</span><div><div class="ct">Doença Arterial Obstrutiva Periférica (DAOP)</div><div class="cs">Fontaine · Manobra de Buerger · ITB · Diferencial</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'da6a')">Fisiopatologia + Fontaine</button>
+      <button class="tb" onclick="T(this,'da6b')">Semiologia + ITB</button>
+      <button class="tb" onclick="T(this,'da6c')">Diferencial</button>
+    </div>
+    <div class="tp on" id="da6a">
+      <h3>Fisiopatologia</h3>
+      <p>A DAOP é a expressão periférica da aterosclerose sistêmica: placa aterosclerótica obstrutiva nas artérias dos membros inferiores → estenose progressiva → isquemia de esforço (claudicação) → isquemia em repouso → necrose tecidual.</p>
+      <h3>Classificação de Fontaine</h3>
+      <table>
+        <tr><th>Estágio</th><th>Clínica</th><th>ITB típico</th></tr>
+        <tr><td>I</td><td>Assintomático (doença detectada por ITB ou imagem)</td><td>0,7–0,9</td></tr>
+        <tr><td>IIa</td><td>Claudicação &gt;200 m</td><td>0,5–0,7</td></tr>
+        <tr><td>IIb</td><td>Claudicação &lt;200 m</td><td>0,4–0,6</td></tr>
+        <tr><td>III</td><td>Dor em repouso (noturna, alivia pendendo o pé)</td><td>0,3–0,4</td></tr>
+        <tr><td>IV</td><td>Úlcera isquêmica / gangrena</td><td>&lt;0,3</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="da6b">
+      <h3>Manobra de Buerger</h3>
+      <ul>
+        <li><strong>Palidez à elevação do membro a 45°</strong> em menos de 60 s: leito capilar colapsa sem reserva de pressão → isquemia grave</li>
+        <li><strong>Eritrose dependente ao pender a perna</strong>: vasodilatação máxima compensatória por acúmulo de metabólitos → quanto mais precoce e intenso o rubor, mais grave a isquemia</li>
+        <li>Tempo de enchimento venoso &gt;20 s = isquemia grave</li>
+      </ul>
+      <h3>Índice Tornozelo-Braquial (ITB)</h3>
+      <table>
+        <tr><th>ITB</th><th>Interpretação</th></tr>
+        <tr><td>&gt;1,3</td><td>Vasos não compressíveis (calcificação — diabéticos, IRC) — falso normal</td></tr>
+        <tr><td>1,0–1,3</td><td>Normal</td></tr>
+        <tr><td>0,7–0,9</td><td>DAOP leve</td></tr>
+        <tr><td>0,4–0,7</td><td>DAOP moderada (claudicação)</td></tr>
+        <tr><td>&lt;0,4</td><td>DAOP grave (isquemia crítica)</td></tr>
+        <tr><td>&lt;0,3</td><td>Isquemia crítica com risco de amputação</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="da6c">
+      <h3>Diferencial — Claudicação Arterial vs Neurogênica vs Venosa</h3>
+      <table>
+        <tr><th>Característica</th><th>Arterial (DAOP)</th><th>Neurogênica (estenose canal)</th><th>Venosa</th></tr>
+        <tr><td>Localização da dor</td><td>Panturrilha, coxa, glúteo (depende do nível)</td><td>Membros inferiores bilaterais, lombar</td><td>Panturrilha</td></tr>
+        <tr><td>Alívio</td><td>Parar de caminhar em pé (30–60 s)</td><td>Sentar ou inclinar-se para frente</td><td>Elevar o membro</td></tr>
+        <tr><td>Pulsos</td><td>Diminuídos ou ausentes</td><td>Normais</td><td>Normais</td></tr>
+        <tr><td>Pele</td><td>Fria, pálida, atrófica, sem pelos</td><td>Normal</td><td>Edema, hiperpigmentação, varizes</td></tr>
+        <tr><td>ITB</td><td>Reduzido (&lt;0,9)</td><td>Normal</td><td>Normal</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 07 TVP ===== -->
+<section class="card" id="s07">
+  <div class="ch"><span class="cn">07</span><div><div class="ct">Trombose Venosa Profunda (TVP)</div><div class="cs">Tríade de Virchow · Manobras · Wells · DOACs</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'tv7a')">Fisiopatologia</button>
+      <button class="tb" onclick="T(this,'tv7b')">Semiologia + Wells</button>
+      <button class="tb" onclick="T(this,'tv7c')">Tratamento</button>
+    </div>
+    <div class="tp on" id="tv7a">
+      <h3>Tríade de Virchow</h3>
+      <table>
+        <tr><th>Componente</th><th>Mecanismo</th><th>Exemplo Clínico</th></tr>
+        <tr><td><strong>Estase venosa</strong></td><td>↓ fluxo sanguíneo → acúmulo de fatores pró-coagulantes</td><td>Imobilização prolongada, viagem longa, ICC, insuficiência venosa</td></tr>
+        <tr><td><strong>Lesão endotelial</strong></td><td>Exposição de colágeno → ativação plaquetária + cascata</td><td>Trauma vascular, cirurgia, cateter venoso central</td></tr>
+        <tr><td><strong>Hipercoagulabilidade</strong></td><td>↑ fatores pró-coagulantes ou ↓ anticoagulantes naturais</td><td>ACO, neoplasia, trombofilias (Fator V Leiden, proteína C/S), gravidez</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="tv7b">
+      <h3>Manobras Clínicas</h3>
+      <ul>
+        <li><strong>Sinal de Homans</strong>: dor na panturrilha à dorsiflexão passiva do pé (baixa especificidade)</li>
+        <li><strong>Sinal de Bancroft</strong>: dor à compressão lateral da panturrilha</li>
+        <li><strong>Sinal de Lowenberg</strong>: dor à insuflação de manguito &lt;150 mmHg na panturrilha ipsilateral</li>
+      </ul>
+      <div class="bx amb"><div class="bl">Atenção</div>As manobras têm baixa especificidade — o Escore de Wells é mais robusto para estratificação de probabilidade.</div>
+      <h3>Escore de Wells para TVP</h3>
+      <table>
+        <tr><th>Critério</th><th>Pontos</th></tr>
+        <tr><td>Câncer ativo</td><td>+1</td></tr>
+        <tr><td>Paralisia ou imobilização recente do membro</td><td>+1</td></tr>
+        <tr><td>Acamado &gt;3 dias ou cirurgia nas últimas 4 semanas</td><td>+1</td></tr>
+        <tr><td>Dor em trajeto venoso profundo</td><td>+1</td></tr>
+        <tr><td>Edema em toda a perna</td><td>+1</td></tr>
+        <tr><td>Edema de panturrilha &gt;3 cm vs contralateral</td><td>+1</td></tr>
+        <tr><td>Edema depressível restrito ao membro sintomático</td><td>+1</td></tr>
+        <tr><td>Veias superficiais colaterais visíveis</td><td>+1</td></tr>
+        <tr><td>Diagnóstico alternativo tão ou mais provável</td><td>-2</td></tr>
+        <tr><td><strong>Interpretação: ≥2 = alta prob. / 1 = moderada / ≤0 = baixa</strong></td><td></td></tr>
+      </table>
+    </div>
+    <div class="tp" id="tv7c">
+      <h3>Anticoagulação — DOACs como 1.ª Linha</h3>
+      <table>
+        <tr><th>Fármaco</th><th>Esquema</th><th>Mecanismo</th></tr>
+        <tr><td>Rivaroxabana</td><td>15 mg 2×/dia × 21 dias → 20 mg/dia</td><td>Inibidor direto do fator Xa</td></tr>
+        <tr><td>Apixabana</td><td>10 mg 2×/dia × 7 dias → 5 mg 2×/dia</td><td>Inibidor direto do fator Xa</td></tr>
+        <tr><td>Dabigatrana</td><td>Após 5–10 dias de HBPM → 150 mg 2×/dia</td><td>Inibidor direto da trombina</td></tr>
+        <tr><td>HBPM + Varfarina</td><td>Bridge por ≥5 dias até INR 2–3</td><td>Anticoagulação parenteral + oral</td></tr>
+      </table>
+      <div class="bx grn"><div class="bl">Duração do Tratamento</div>
+        TVP proximal provocada (cirurgia, trauma): 3 meses<br>
+        TVP não provocada: mínimo 3 meses; reavaliar extensão conforme risco de recorrência<br>
+        TVP com neoplasia ativa: anticoagulação indefinida (HBPM ou DOAC)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08 ISQUEMIA MESENTÉRICA ===== -->
+<section class="card" id="s08">
+  <div class="ch"><span class="cn">08</span><div><div class="ct">Isquemia Mesentérica Aguda (IMA)</div><div class="cs">4 Fenótipos · Dissociação Dor-Exame · Armadilhas · WSES 2022</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'im8a')">Classificação + Fisiologia</button>
+      <button class="tb" onclick="T(this,'im8b')">Semiologia + Armadilhas</button>
+      <button class="tb" onclick="T(this,'im8c')">Diagnóstico + Tratamento</button>
+    </div>
+    <div class="tp on" id="im8a">
+      <div class="bx red"><div class="bl">Por Que Exige Perícia</div>Mortalidade global ~50% sem tratamento. <strong>Cada 6h de atraso à angio-TC dobra a mortalidade.</strong> Quando os sinais peritoneais surgem, a janela de salvamento intestinal já se fechou.</div>
+      <h3>4 Fenótipos da Isquemia Mesentérica Aguda</h3>
+      <table>
+        <tr><th>Tipo</th><th>Frequência</th><th>Mecanismo</th><th>Fatores de Risco</th></tr>
+        <tr><td><strong>Embolia arterial (AMS)</strong></td><td>~50%</td><td>Êmbolo cardíaco aloja-se 3–10 cm distal à origem da AMS</td><td>FA sem anticoagulação, IAM recente, trombo de VE</td></tr>
+        <tr><td><strong>Trombose arterial</strong></td><td>15–40%</td><td>Trombo sobre placa aterosclerótica na origem do vaso (acute-on-chronic)</td><td>DAOP, IMC prévia (história de angina intestinal)</td></tr>
+        <tr><td><strong>NOMI</strong></td><td>~20%</td><td>Vasoconstrição esplâncnica reflexa ao baixo débito; AMS pérvia</td><td>ICC, choque, vasopressores, pós-CEC, hemodiálise</td></tr>
+        <tr><td><strong>TVM (Trombose venosa)</strong></td><td>&lt;10%</td><td>Tríade de Virchow; isquemia secundária por hipertensão venosa</td><td>Trombofilias, ACO, neoplasia, pancreatite, DII</td></tr>
+      </table>
+      <h3>Cascata Histológica — Mucosa → Serosa</h3>
+      <ol>
+        <li><strong>Hipóxia da mucosa</strong>: camada mais metabolicamente ativa → isquemia inicia de dentro para fora</li>
+        <li><strong>Dor visceral intensa</strong>: aferentes viscerais ativados → dor difusa, intensa, mal-localizada, sem irritação peritoneal</li>
+        <li><strong>Serosa íntegra</strong> → Blumberg negativo, abdome flácido = <em>dissociação dor-exame</em></li>
+        <li><strong>Necrose transmural</strong>: serosa atingida → peritonite, translocação bacteriana, sepse → fase irreversível</li>
+      </ol>
+    </div>
+    <div class="tp" id="im8b">
+      <div class="bx red"><div class="bl">Sinal Cardinal — Dissociação Dor-Exame</div>"Pior dor da vida" com abdome flácido e Blumberg negativo. Quando o abdome em tábua aparece, a necrose transmural já está instalada.</div>
+      <h3>Armadilhas Laboratoriais — NÃO Confundir</h3>
+      <table>
+        <tr><th>Exame</th><th>Valor na IMA</th><th>Armadilha</th></tr>
+        <tr><td><strong>Amilase</strong></td><td>↑ em ~50% das IMAs</td><td><strong>NÃO é pancreatite</strong> — sobe por translocação enzimática regional. A IMA é o diagnóstico, não a pancreatite</td></tr>
+        <tr><td><strong>Lactato</strong></td><td>↑ tardio (necrose transmural)</td><td><strong>Lactato NORMAL não exclui IMA</strong> — é marcador tardio. Normal = janela terapêutica ainda aberta</td></tr>
+        <tr><td>D-dímero</td><td>Alta sensibilidade</td><td>Baixa especificidade. Normal torna IMA improvável; elevado é inespecífico</td></tr>
+        <tr><td>Leucócitos</td><td>↑ &gt;90%</td><td>Inespecífico — presente em qualquer causa inflamatória abdominal</td></tr>
+      </table>
+      <h3>Por Fenótipo — Pistas à Beira do Leito</h3>
+      <table>
+        <tr><th>Fenótipo</th><th>Pistas Clínicas</th></tr>
+        <tr><td>Embólica</td><td>FA sem anticoagulação + dor súbita e fulminante + história de embolia em outros leitos</td></tr>
+        <tr><td>Trombótica</td><td>Pródromo de angina intestinal (dor pós-prandial + sitofobia + emagrecimento) que se torna contínua</td></tr>
+        <tr><td>NOMI</td><td>Paciente crítico em vasopressor; distensão ou sangramento como único sinal; silenciosa sob sedação</td></tr>
+        <tr><td>TVM</td><td>Jovem com trombofilia; sintomas progressivos 2–5 dias; D-dímero muito elevado</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="im8c">
+      <h3>Angio-TC — Padrão-Ouro</h3>
+      <ul>
+        <li>Protocolo bifásico (arterial + portal); <strong>sem contraste oral</strong></li>
+        <li><strong>Realizar mesmo com creatinina elevada</strong> — o atraso é mais deletério que o risco de nefropatia por contraste</li>
+        <li>Achados graves: pneumatose intestinal + gás portal = necrose transmural (irreversibilidade)</li>
+        <li>TVM: trombo na VMS = "sinal do alvo"</li>
+      </ul>
+      <h3>Tratamento por Fenótipo</h3>
+      <table>
+        <tr><th>Tipo</th><th>1.ª Linha</th><th>Cirurgia</th></tr>
+        <tr><td>Embolia arterial</td><td>Embolectomia endovascular ou cirúrgica</td><td>Se peritonite / necrose</td></tr>
+        <tr><td>Trombose arterial</td><td>Revascularização endovascular (stent) ou bypass</td><td>Falha endovascular / peritonite</td></tr>
+        <tr><td>NOMI</td><td>Otimizar DC (dobutamina), reduzir/retirar vasopressores, papaverina intra-arterial</td><td>Se peritonite franca</td></tr>
+        <tr><td><strong>TVM</strong></td><td><strong>Anticoagulação plena com HNF IV — 1.ª linha</strong></td><td>Apenas se peritonite / necrose</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 09 APENDICITE ===== -->
+<section class="card" id="s09">
+  <div class="ch"><span class="cn">09</span><div><div class="ct">Apendicite Aguda</div><div class="cs">Cronologia · Sinais Físicos · Alvarado · Regra da Inversão</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'ap9a')">Fisiopatologia + Cronologia</button>
+      <button class="tb" onclick="T(this,'ap9b')">Sinais Físicos + Alvarado</button>
+    </div>
+    <div class="tp on" id="ap9a">
+      <h3>Cronologia Clássica da Apendicite</h3>
+      <ol>
+        <li><strong>Anorexia</strong> — precede todos os outros sintomas</li>
+        <li><strong>Dor periumbilical difusa</strong> — dor visceral por distensão do apêndice (aferentes T10)</li>
+        <li><strong>Náusea/vômito</strong> — após a dor (diferenciar de gastroenterite: vômito antes da dor)</li>
+        <li><strong>Migração da dor para o FID</strong> (ponto de McBurney) — irritação peritoneal localizada (Blumberg +)</li>
+        <li><strong>Febre baixa</strong> (37,5–38,5°C) — sinal de inflamação ativa</li>
+      </ol>
+      <div class="bx red"><div class="bl">Regra da Inversão</div>Na apendicite, a dor precede o vômito. Se o vômito veio antes da dor, questionar o diagnóstico (gastroenterite, isquemia intestinal). A inversão da cronologia não exclui apendicite, mas exige investigação cuidadosa.</div>
+    </div>
+    <div class="tp" id="ap9b">
+      <h3>Sinais Físicos Clássicos</h3>
+      <table>
+        <tr><th>Sinal</th><th>Técnica</th><th>Mecanismo</th></tr>
+        <tr><td><strong>Blumberg</strong> (descompressão dolorosa)</td><td>Comprimir lentamente FID, soltar abruptamente</td><td>Irritação peritoneal por inflamação transmural</td></tr>
+        <tr><td><strong>McBurney</strong></td><td>Ponto a 1/3 da distância do umbo à crista ilíaca direita</td><td>Dor máxima no ponto de projeção do apêndice</td></tr>
+        <tr><td><strong>Rovsing</strong></td><td>Compressão do FIE → dor no FID</td><td>Deslocamento de alças → compressão indireta do apêndice</td></tr>
+        <tr><td><strong>Psoas</strong></td><td>Extensão da coxa direita com paciente em DLE</td><td>Apêndice retrocecal → tensiona o psoas</td></tr>
+        <tr><td><strong>Obturador</strong></td><td>Rotação interna da coxa direita</td><td>Apêndice pélvico → tensiona o obturador interno</td></tr>
+      </table>
+      <h3>Escore de Alvarado (MANTRELS)</h3>
+      <table>
+        <tr><th>Critério</th><th>Pontos</th></tr>
+        <tr><td><strong>M</strong>igração da dor para FID</td><td>1</td></tr>
+        <tr><td><strong>A</strong>norexia</td><td>1</td></tr>
+        <tr><td><strong>N</strong>áusea/vômito</td><td>1</td></tr>
+        <tr><td><strong>T</strong>endência (dor) em FID</td><td>2</td></tr>
+        <tr><td><strong>R</strong>ebote (Blumberg)</td><td>1</td></tr>
+        <tr><td><strong>E</strong>levação da temperatura</td><td>1</td></tr>
+        <tr><td><strong>L</strong>eucócitos &gt;10.000</td><td>2</td></tr>
+        <tr><td><strong>S</strong>hift (desvio à esquerda)</td><td>1</td></tr>
+        <tr><td><strong>Total: ≥7 = alta probabilidade; ≤3 = baixa</strong></td><td><strong>/10</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10 CIRROSE / MASLD ===== -->
+<section class="card" id="s10">
+  <div class="ch"><span class="cn">10</span><div><div class="ct">Cirrose / MASLD (Doença Hepática Metabólica)</div><div class="cs">Delphi 2023 · Semiologia Hepática · Complicações · MELD</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'ci0a')">Fisiopatologia</button>
+      <button class="tb" onclick="T(this,'ci0b')">Semiologia</button>
+      <button class="tb" onclick="T(this,'ci0c')">Complicações</button>
+    </div>
+    <div class="tp on" id="ci0a">
+      <h3>Nomenclatura — Consenso Delphi 2023</h3>
+      <ul>
+        <li><strong>MASLD</strong> (Metabolic dysfunction-Associated Steatotic Liver Disease) = substituiu NAFLD</li>
+        <li><strong>MASH</strong> (Metabolic dysfunction-Associated SteatoHepatitis) = substituiu NASH</li>
+        <li>Critério: esteatose hepática + ≥1 fator metabólico (obesidade, DM, HAS, dislipidemia)</li>
+      </ul>
+      <h3>Cadeia Lipotoxicidade → Fibrose → Cirrose</h3>
+      <ol>
+        <li>Disfunção mitocondrial + estresse oxidativo → lipotoxicidade hepatocitária</li>
+        <li>Inflamação lobular (MASH) → ativação de células estreladas de Ito → fibrose</li>
+        <li>Fibrose progressiva → cirrose → hipertensão portal + insuficiência hepatocelular</li>
+      </ol>
+      <h3>MELD-Na — Prognóstico</h3>
+      <p>MELD-Na = 11,2 × ln(bilirrubina/0,025) + 9,57 × ln(creatinina/0,5) – 4,39 × ln(RNI/0,7) + 9,09 × (1/sódio) + 6. Score &gt;20 = alta mortalidade em 90 dias; prioridade em fila de transplante &gt;15.</p>
+    </div>
+    <div class="tp" id="ci0b">
+      <h3>Semiologia — Insuficiência Hepatocelular vs Hipertensão Portal</h3>
+      <table>
+        <tr><th>Achado</th><th>Mecanismo</th><th>Grupo</th></tr>
+        <tr><td>Icterícia</td><td>↓ conjugação de bilirrubina</td><td>Insuficiência hepatocelular (IHC)</td></tr>
+        <tr><td>Eritema palmar</td><td>↑ estrogênio (não metabolizado) → vasodilatação</td><td>IHC</td></tr>
+        <tr><td>Telangectasias aracneiformes (aranhas vasculares)</td><td>↑ estrogênio → neoformação capilar</td><td>IHC</td></tr>
+        <tr><td>Ginecomastia, atrofia testicular</td><td>↑ estrogênio + ↓ testosterona</td><td>IHC</td></tr>
+        <tr><td>Asterixis ("flapping tremor")</td><td>Encefalopatia hepática — acúmulo de amônia</td><td>IHC grave</td></tr>
+        <tr><td>Ascite</td><td>↑ pressão portal + hipoalbuminemia + ativação SRAA</td><td>Hipertensão portal (HP)</td></tr>
+        <tr><td>Cabeça de Medusa</td><td>Reabertura de veias paraumbilicais (vasos colaterais porta-sistêmicos)</td><td>HP</td></tr>
+        <tr><td>Esplenomegalia</td><td>Congestão esplênica por ↑ pressão portal</td><td>HP</td></tr>
+        <tr><td>Varizes esofágicas</td><td>Shunts porta-sistêmicos por HP</td><td>HP</td></tr>
+        <tr><td>Fígado pequeno e nodular</td><td>Retração fibrosa progressiva (cirrose avançada)</td><td>Ambos — sinal de doença avançada</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="ci0c">
+      <h3>Principais Complicações da Cirrose</h3>
+      <table>
+        <tr><th>Complicação</th><th>Diagnóstico</th><th>Tratamento</th></tr>
+        <tr><td><strong>Peritonite Bacteriana Espontânea (PBE)</strong></td><td>PMN &gt;250/mm³ no líquido ascítico (com ou sem sintomas)</td><td>Cefotaxima IV 3.º geração + albumina 1,5 g/kg D1 + 1 g/kg D3</td></tr>
+        <tr><td><strong>SHR-IRA (Síndrome Hepatorrenal)</strong></td><td>Cr ↑ + sem melhora após albumina 48h + FENa &lt;1% + sedimento branco</td><td>Terlipressina + albumina IV</td></tr>
+        <tr><td><strong>Varizes esofágicas com sangramento</strong></td><td>Endoscopia digestiva alta de emergência</td><td>Ligadura + vasoconstritor (terlipressina/octreotida) + β-bloqueador para prevenção</td></tr>
+        <tr><td><strong>Encefalopatia hepática</strong></td><td>Escalas de West-Haven; NH₃ sérica (suporte)</td><td>Lactulose oral/retal + rifaximina; tratar fator precipitante</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11 ONDAS JUGULARES ===== -->
+<section class="card" id="s11">
+  <div class="ch"><span class="cn">11</span><div><div class="ct">Ondas Venosas Jugulares <span class="badge">★ Dica do Professor</span></div><div class="cs">PVJ · Onda "a" em Canhão · Onda "v" Gigante · Padrões Patológicos</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'j01')">Fisiologia Normal</button>
+      <button class="tb" onclick="T(this,'j02')">Onda "a" em Canhão</button>
+      <button class="tb" onclick="T(this,'j03')">Onda "v" Gigante</button>
+      <button class="tb" onclick="T(this,'j04')">Outros Padrões</button>
+    </div>
+
+    <div class="tp on" id="j01">
+      <h3>Fisiologia das Ondas — Correlação com o Ciclo Cardíaco</h3>
+      <p>A veia jugular interna mantém continuidade funcional com o átrio direito, transmitindo as variações pressóricas do ciclo cardíaco. PVJ normal a 45°: distância vertical do ponto de maior oscilação ao ângulo de Louis + 5 cm = <strong>6–9 cmH₂O</strong>.</p>
+      <div class="wc">
+        <div class="wr">
+          <div class="ww"><div class="wl">Onda</div><div class="wn" style="color:#5fd68a">a</div><div class="wd">Contração atrial direita (pré-sistólica). Após onda P. <strong style="color:#5fd68a">Desaparece na FA.</strong></div></div>
+          <div class="ww"><div class="wl">Descida</div><div class="wn" style="color:#7ecbde">x</div><div class="wd">Relaxamento atrial + descida do assoalho tricúspide durante sístole.</div></div>
+          <div class="ww"><div class="wl">Onda</div><div class="wn" style="color:#aaa">c</div><div class="wd">Bulge da tricúspide ao fechar. Raramente visível clinicamente.</div></div>
+          <div class="ww"><div class="wl">Onda</div><div class="wn" style="color:#e07070">v</div><div class="wd">Enchimento venoso do AD durante sístole (tricúspide fechada). <strong style="color:#e07070">Sincrônica com pulso carotídeo.</strong></div></div>
+          <div class="ww"><div class="wl">Descida</div><div class="wn" style="color:#7ecbde">y</div><div class="wd">Abertura da tricúspide → esvaziamento AD para VD (proto-diástole).</div></div>
+        </div>
+      </div>
+      <table>
+        <tr><th>Onda/Descida</th><th>Correlação ECG</th><th>Evento Valvar</th></tr>
+        <tr><td><strong>a</strong></td><td>Após onda P</td><td>Contração atrial com tricúspide aberta</td></tr>
+        <tr><td>x</td><td>Durante QRS</td><td>Relaxamento atrial + descida valvar na sístole</td></tr>
+        <tr><td>c</td><td>Final do QRS</td><td>Fechamento da tricúspide</td></tr>
+        <tr><td><strong>v</strong></td><td>Durante onda T</td><td>Enchimento passivo AD com tricúspide fechada</td></tr>
+        <tr><td>y</td><td>Após onda T</td><td>Abertura da tricúspide</td></tr>
+      </table>
+    </div>
+
+    <div class="tp" id="j02">
+      <div class="bx red"><div class="bl">⚠ FOCO DA PROVA — Onda "a" em Canhão</div>
+        Onda "a" de <strong>grande amplitude</strong>, gerada quando o átrio direito contrai <strong>contra a valva tricúspide fechada</strong> ou contra resistência muito alta.
+      </div>
+      <h3>Dois Tipos — Distinção Fundamental para a Prova</h3>
+      <table>
+        <tr><th>Tipo</th><th>Mecanismo</th><th>Regularidade</th><th>Causa Principal</th></tr>
+        <tr><td><strong>IRREGULARES</strong></td><td>Dissociação AV completa: átrio contrai aleatoriamente; quando coincide com sístole ventricular, tricúspide está fechada → canhão</td><td>Esporádico, imprevisível</td><td><strong>BAV de 3.º grau (dissociação AV total)</strong> — patognomônico</td></tr>
+        <tr><td><strong>REGULARES</strong></td><td>Contração atrial sempre coincide com sístole (proporção fixa); onda P retrograde no QRS</td><td>A cada batimento, ritmicamente</td><td>Ritmo juncional / taquicardia juncional</td></tr>
+      </table>
+      <h3>Outras Causas de Onda "a" em Canhão</h3>
+      <ul>
+        <li><strong>BAV total</strong> → irregulares (o mais cobrado)</li>
+        <li>Taquicardia ventricular com dissociação AV → irregulares</li>
+        <li>Ritmo juncional / taquicardia juncional → regulares</li>
+        <li>Marcapasso VVI com dissociação → irregulares</li>
+        <li>Estenose pulmonar grave / HAP → onda "a" aumentada (sem canhão verdadeiro — brônquio triucúspide está aberto)</li>
+      </ul>
+      <div class="bx red"><div class="bl">Como Reconhecer à Beira do Leito — BAV Total</div>
+        Bradicardia extrema (FC 30–45 bpm) + pulso radial lento e <em>regular</em> + ondas jugulares <em>irregulares</em> de amplitude variável com algumas de grande amplitude esporádicas.<br><br>
+        <strong>ECG confirmatório:</strong> ondas P independentes dos QRS (P e QRS com frequências diferentes, sem relação fixa).<br><strong>Conduta:</strong> ECG imediato + preparo para marcapasso transcutâneo/transvenoso.
+      </div>
+      <div class="bx amb"><div class="bl">Não Confundir</div>
+        Onda "a" <em>aumentada</em> (sem canhão) = estenose tricúspide / estenose pulmonar / HAP — AD contrai contra resistência com tricúspide ABERTA e ritmo sinusal. A onda "a" em <em>canhão verdadeiro</em> implica tricúspide FECHADA ou dissociação temporal entre átrio e ventrículo.
+      </div>
+    </div>
+
+    <div class="tp" id="j03">
+      <div class="bx red"><div class="bl">⚠ FOCO DA PROVA — Onda "v" Gigante</div>
+        Onda "v" de <strong>grande amplitude</strong>, sincrônica com o pulso carotídeo, gerada por regurgitação sistólica do VD para o AD através de valva tricúspide incompetente.
+      </div>
+      <h3>Mecanismo</h3>
+      <p>Na IT grave, durante a sístole ventricular, o VD ejeta parte do volume retrogradamente para o AD (tricúspide incompetente) → AD e jugulares recebem esse jato sistólico → onda "v" gigante. Por isso ela é <strong>sincrônica com o pulso carotídeo</strong> (ambos são eventos sistólicos).</p>
+      <h3>Como Reconhecer</h3>
+      <ul>
+        <li>Pulsação jugular proeminente, visível, sincrônica com o pulso carotídeo (a cada batimento, regular)</li>
+        <li><strong>Fígado pulsátil</strong> à palpação (pulsação sistólica hepática) — nas formas graves</li>
+        <li>Sopro holossistólico em foco tricúspide que aumenta na inspiração: <strong>Sinal de Rivero-Carvallo</strong></li>
+        <li>PVJ muito elevada com descida "y" proeminente</li>
+      </ul>
+      <div class="bx grn"><div class="bl">Comparativo — Onda "v" Gigante vs Onda "a" em Canhão</div>
+        <table style="margin:0">
+          <tr><th>Característica</th><th>Onda "v" Gigante</th><th>Onda "a" em Canhão</th></tr>
+          <tr><td>Momento do ciclo</td><td><strong>Sístole</strong> (sincrônica com carotídea)</td><td><strong>Pré-sístole</strong> (antes da carotídea)</td></tr>
+          <tr><td>Regularidade</td><td>Regular, a cada batimento</td><td>Irregular (BAV) ou regular (juncional)</td></tr>
+          <tr><td>Causa principal</td><td>IT grave</td><td>BAV total / dissociação AV</td></tr>
+          <tr><td>Sopro associado</td><td>Holossistólico tricúspide + Rivero-Carvallo</td><td>Nenhum / bradicardia extrema</td></tr>
+          <tr><td>ECG</td><td>Sinusal ou FA</td><td>Dissociação P-QRS</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="tp" id="j04">
+      <h3>Outros Padrões Patológicos Relevantes</h3>
+      <table>
+        <tr><th>Sinal/Padrão</th><th>Mecanismo</th><th>Diagnóstico</th></tr>
+        <tr><td><strong>PVJ elevada (&gt;9 cmH₂O)</strong></td><td>Sobrecarga de volume / IC direita</td><td>ICC, cor pulmonale, TEP, tamponamento, constritiva</td></tr>
+        <tr><td><strong>Sinal de Kussmaul</strong></td><td>PVJ que SOBE paradoxalmente na inspiração — VD não se expande por compressão pericárdica</td><td>Tamponamento cardíaco; pericardite constritiva</td></tr>
+        <tr><td><strong>Refluxo hepatojugular</strong></td><td>Compressão hepática → PVJ sobe e sustenta ≥10s</td><td>ICC direita / biventricular</td></tr>
+        <tr><td><strong>Onda "a" ausente</strong></td><td>Sem contração atrial coordenada</td><td>Fibrilação atrial — diagnóstico pela ausência</td></tr>
+        <tr><td><strong>Onda "a" aumentada (sem canhão)</strong></td><td>AD contrai contra resistência aumentada (ritmo sinusal)</td><td>Estenose tricúspide; estenose pulmonar; HAP</td></tr>
+        <tr><td><strong>Descida "y" rápida e profunda</strong></td><td>Esvaziamento súbito do AD após abertura tricúspide com pericárdio rígido</td><td>Pericardite constritiva (Sinal de Friedrich)</td></tr>
+        <tr><td><strong>Descida "y" abolida</strong></td><td>Obstáculo ao esvaziamento do AD</td><td>Estenose tricúspide; tamponamento</td></tr>
+      </table>
+      <div class="bx blue"><div class="bl">Tríade de Beck — Tamponamento</div>
+        1. Hipotensão · 2. JVP elevada + Sinal de Kussmaul · 3. Bulhas abafadas<br>
+        + Pulso paradoxal (&darr;PA sistólica &gt;10 mmHg na inspiração) + Baixa voltagem ECG + Silhueta em "moringa" Rx<br>
+        <strong>Conduta: Pericardiocentese guiada por eco — emergência absoluta</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12 IRA ===== -->
+<section class="card" id="s12">
+  <div class="ch"><span class="cn">12</span><div><div class="ct">Injúria Renal Aguda (IRA)</div><div class="cs">KDIGO · Etiologia · Sedimento Urinário · Tratamento</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'ira1')">KDIGO + Etiologia</button>
+      <button class="tb" onclick="T(this,'ira2')">Semiologia</button>
+      <button class="tb" onclick="T(this,'ira3')">Sedimento + FENa</button>
+      <button class="tb" onclick="T(this,'ira4')">Tratamento</button>
+    </div>
+    <div class="tp on" id="ira1">
+      <h3>Critérios KDIGO — Qualquer Um Dos Três</h3>
+      <div class="bx blue"><ul style="margin:0"><li>↑ Creatinina ≥ 0,3 mg/dL em 48h</li><li>↑ Creatinina ≥ 1,5× o basal dos últimos 7 dias</li><li>Débito urinário &lt; 0,5 mL/kg/h por ≥ 6 horas</li></ul></div>
+      <div class="bx amb"><div class="bl">Critério RIFLE</div><strong>R</strong>isk → <strong>I</strong>njury → <strong>F</strong>ailure → <strong>L</strong>oss (&gt;4 sem) → <strong>E</strong>SRD (&gt;3 meses). Sensibilidade equivalente ao KDIGO para mortalidade.</div>
+      <h3>Classificação Etiológica</h3>
+      <table>
+        <tr><th>Tipo</th><th>Mecanismo</th><th>Causas Principais</th><th>FENa</th></tr>
+        <tr><td><strong>Pré-renal</strong></td><td>↓ perfusão; túbulo inicialmente íntegro</td><td>Hipovolemia (hemorragia, diarreia); ICC; sepse; AINEs; IECA em baixa perfusão</td><td>&lt;1%</td></tr>
+        <tr><td><strong>NTA (intrínseco)</strong></td><td>Lesão tubular direta por isquemia ou nefrotóxicos</td><td>Isquemia prolongada; aminoglicosídeos; vancomicina; contraste; rabdomiólise</td><td>&gt;2%</td></tr>
+        <tr><td><strong>NIA (intrínseco)</strong></td><td>Inflamação imunomediada intersticial</td><td>β-lactâmicos, AINEs, IBP (omeprazol), infecção, LES</td><td>Variável (&lt;1% precoce)</td></tr>
+        <tr><td><strong>GN (intrínseco)</strong></td><td>Lesão glomerular imunomediada</td><td>LES, IgA, anti-MBG, pós-infecciosa</td><td>Variável</td></tr>
+        <tr><td><strong>Pós-renal</strong></td><td>Obstrução do trato urinário</td><td>HPB; massas pélvicas; nefrolitíase; bexiga neurogênica</td><td>Variável</td></tr>
+      </table>
+      <div class="bx red"><div class="bl">Regra de Ouro</div>IRA pré-renal prolongada → NTA. A lesão funcional torna-se estrutural em horas. A janela para reversão com reposição volêmica é estreita. Após NTA instalada, recuperação leva semanas a meses.</div>
+    </div>
+    <div class="tp" id="ira2">
+      <h3>Apresentação Clínica por Tipo</h3>
+      <table>
+        <tr><th>Tipo</th><th>Sintomas</th><th>Exame Físico</th></tr>
+        <tr><td>Pré-renal</td><td>Oligúria, sede, hipotensão ortostática</td><td>↓ turgor, mucosas secas, taquicardia, PVJ baixa</td></tr>
+        <tr><td>NTA</td><td>Oligúria persistente; sem resposta a fluidos</td><td>Pode ter edema se oligúria prolongada</td></tr>
+        <tr><td>NIA</td><td>Febre, rash maculopapular, oligúria ou poliúria</td><td>Rash cutâneo (NIA por droga)</td></tr>
+        <tr><td>GN</td><td>Hematúria macroscópica, edema, HAS</td><td>Edema periférico, hipertensão</td></tr>
+        <tr><td>Pós-renal</td><td>Dificuldade para urinar, jato fraco, cólica, anúria súbita</td><td>Bexiga palpável; dor em loja renal</td></tr>
+      </table>
+      <h3>Sinais de Uremia</h3>
+      <ul>
+        <li>Encefalopatia urêmica: letargia, confusão, asterixis ("flapping tremor")</li>
+        <li>Pericardite urêmica: atrito pericárdico</li>
+        <li>Náusea, vômito, prurido urêmico</li>
+        <li><strong>Hipercalemia: ondas T apiculadas → QRS alargado → FV = emergência absoluta</strong></li>
+      </ul>
+      <h3>Débito Urinário como Pista Diagnóstica</h3>
+      <ul>
+        <li><strong>Oligúria</strong> (&lt;400 mL/dia): favorece IRA em geral</li>
+        <li><strong>Anúria súbita</strong>: obstrução bilateral, GN aguda, oclusão vascular bilateral</li>
+        <li><strong>Poliúria</strong>: defeito de concentração (NIA) ou nefropatia pós-obstrutiva</li>
+      </ul>
+    </div>
+    <div class="tp" id="ira3">
+      <h3>FENa — Diagnóstico Diferencial Fundamental</h3>
+      <div class="bx blue"><div class="bl">FENa = (Na⁺ urinário × Cr sérica) / (Na⁺ sérico × Cr urinária) × 100</div>
+        <table style="margin:8px 0 0">
+          <tr><th>FENa</th><th>Diagnóstico</th><th>Exceções Importantes</th></tr>
+          <tr><td>&lt;1%</td><td>IRA pré-renal (túbulo reabsorve Na⁺)</td><td>NIA precoce, GN, rabdomiólise, contraste podem ter FENa &lt;1%</td></tr>
+          <tr><td>&gt;2%</td><td>NTA (túbulo lesado não reabsorve Na⁺)</td><td>Se em uso de diuréticos → usar FEUreia (&lt;35% = pré-renal)</td></tr>
+        </table>
+      </div>
+      <h3>Sedimento Urinário — O Exame que o Prof. João Valoriza</h3>
+      <table>
+        <tr><th>Achado no Sedimento</th><th>Diagnóstico</th></tr>
+        <tr><td><strong>Cilindros granulosos acastanhados "marrom-lama"</strong></td><td><strong>NTA</strong> — células tubulares necróticas descamadas no lúmen</td></tr>
+        <tr><td>Cilindros de leucócitos + piúria estéril + eosinofilúria</td><td><strong>NIA</strong> — mais específico de NIA por droga</td></tr>
+        <tr><td>Cilindros hemáticos + hematúria dismórfica + proteinúria</td><td><strong>GN</strong> — lesão glomerular</td></tr>
+        <tr><td>Sedimento "branco" (inativo)</td><td><strong>IRA pré-renal</strong> ou SHR — sem lesão estrutural</td></tr>
+        <tr><td>Cristais de oxalato, urato, etc.</td><td>IRA intratubular (mieloma, lise tumoral, etilenoglicol)</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="ira4">
+      <h4>1. Teste Volêmico Inicial</h4>
+      <ul>
+        <li>Todos sem contraindicação → expansão volêmica IV</li>
+        <li>Melhora → IRA pré-renal confirmada → tratar causa</li>
+        <li>Sem melhora → NTA/intrínseco → não insistir em fluidos</li>
+      </ul>
+      <h4>2. Hipercalemia — Passos em Ordem</h4>
+      <ol>
+        <li>Restrição de K⁺ na dieta</li>
+        <li>Insulina regular + dextrose 50% IV (redistribuição intracelular)</li>
+        <li>Beta-agonistas (salbutamol IV/nebulizado)</li>
+        <li>Resinas quelantes de K⁺ (eliminação intestinal)</li>
+        <li>Alterações ao ECG → <strong>Gluconato de Cálcio IV</strong> (estabiliza membrana cardíaca)</li>
+        <li>Refratária → <strong>Diálise</strong></li>
+      </ol>
+      <h4>3. TRS — Indicações</h4>
+      <ul>
+        <li>Hipercalemia grave refratária ao tratamento clínico</li>
+        <li>Pericardite urêmica</li>
+        <li>Edema pulmonar refratário</li>
+        <li>Acidose metabólica grave não responsiva ao bicarbonato</li>
+      </ul>
+      <div class="bx amb"><div class="bl">Furosemida NÃO Converte IRA Oligúrica</div>Diurético serve para controle de sobrecarga volêmica, não para reverter NTA. Não forçar débito urinário às custas de depleção volêmica adicional.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13 HIPOLIPEMIANTES ===== -->
+<section class="card" id="s13">
+  <div class="ch"><span class="cn">13</span><div><div class="ct">Hipolipemiantes — SBC 2025 + ACC/AHA 2026</div><div class="cs">Mecanismos · Metas Terapêuticas · Divergências entre Diretrizes</div></div></div>
+  <div class="cb">
+    <div class="tabs">
+      <button class="tb on" onclick="T(this,'h01')">Metas</button>
+      <button class="tb" onclick="T(this,'h02')">Anti-LDL</button>
+      <button class="tb" onclick="T(this,'h03')">Anti-TG</button>
+      <button class="tb" onclick="T(this,'h04')">Divergências</button>
+    </div>
+    <div class="tp on" id="h01">
+      <h3>Metas de LDL-c</h3>
+      <table>
+        <tr><th>Categoria de Risco</th><th>SBC 2025</th><th>ACC/AHA 2026</th></tr>
+        <tr><td>Baixo</td><td>&lt;115 mg/dL</td><td>&lt;100 mg/dL</td></tr>
+        <tr><td>Intermediário</td><td>&lt;100 mg/dL</td><td>&lt;100 mg/dL</td></tr>
+        <tr><td>Alto</td><td>&lt;70 mg/dL</td><td>&lt;70 mg/dL</td></tr>
+        <tr><td>Muito Alto</td><td>&lt;50 mg/dL</td><td>&lt;55 mg/dL</td></tr>
+        <tr><td>Extremo (só SBC)</td><td>&lt;40 mg/dL</td><td>Não existe formalmente</td></tr>
+      </table>
+      <div class="bx blue"><div class="bl">Princípio Convergente</div>Redução ≥50% do LDL-c basal para grupos de maior risco, independentemente da meta absoluta. Dosagem universal de Lp(a) ≥1× na vida em ambas as diretrizes (recomendação forte).</div>
+      <h3>Metas Coprimárias</h3>
+      <ul>
+        <li><strong>não-HDL-c</strong>: incorpora todas as partículas aterogênicas; essencial quando TG &gt;150 mg/dL</li>
+        <li><strong>ApoB</strong>: marcador mais preciso das partículas totais; meta &lt;65 mg/dL em risco extremo</li>
+        <li><strong>Lp(a)</strong>: ≥50 mg/dL (ou ≥125 nmol/L) = alto risco incremental; inibidores de PCSK9 reduzem 20–30%</li>
+      </ul>
+    </div>
+    <div class="tp" id="h02">
+      <div class="dg">
+        <div class="dc"><div class="dn">1. Estatinas — 1.ª linha universal</div><div class="dm"><strong>Alvo:</strong> HMG-CoA redutase → ↓ síntese colesterol hepatócito → ↑ expressão receptores LDL → ↑ captação LDL<br><strong>Alta intensidade:</strong> Rosuva 20–40 mg / Atorva 40–80 mg → ↓ LDL ≥50%<br><strong>Efeitos pleitrópicos:</strong> Estabilização de placa, ↓ PCR, ↑ eNOS<br><strong>AE:</strong> Miopatia (↓ CoQ10); CK só com sintomas<br><strong>Contraindicação:</strong> Genfibrozila + estatina = CONTRAINDICADO</div></div>
+        <div class="dc"><div class="dn">2. Ezetimiba — 2.ª linha</div><div class="dm"><strong>Alvo:</strong> Inibe NPC1L1 intestinal → ↓ absorção colesterol → ↓ entrega ao fígado → ↑ receptores LDL<br><strong>Dose:</strong> 10 mg/dia VO<br><strong>Redução LDL:</strong> 13–20% mono; +24% com estatina (duplo bloqueio intestinal + hepático)<br><strong>IMPROVE-IT:</strong> ↓ MACE 7,2% em 7 anos em SCA</div></div>
+        <div class="dc"><div class="dn">3. Anti-PCSK9 mAb (Evolocumabe / Alirocumabe)</div><div class="dm"><strong>Alvo:</strong> Bloqueiam PCSK9 circulante → receptor LDL não é degradado → ↑ reciclagem na superfície hepatocitária → ↑ remoção LDL<br><strong>Redução LDL:</strong> 55–60% | ↓ Lp(a) 20–30% (única classe disponível)<br><strong>SBC 2025:</strong> Forte para alto/muito alto/extremo<br><strong>ACC/AHA 2026:</strong> COR I altíssimo risco; flexibiliza obrigatoriedade da ezetimiba antes</div></div>
+        <div class="dc"><div class="dn">4. Inclisirana (siRNA anti-PCSK9)</div><div class="dm"><strong>Alvo:</strong> siRNA cliva mRNA da PCSK9 no hepatócito → ↓ síntese da proteína (mecanismo INTRAcelular)<br><strong>Dose:</strong> 284 mg SC — semestral<br><strong>Redução LDL:</strong> 48–52%<br><strong>SBC 2025:</strong> Forte (≈ mAb)<br><strong>ACC/AHA 2026:</strong> COR IIa — aguarda ORION-4 / VICTORION-2P</div></div>
+        <div class="dc"><div class="dn">5. Ácido Bempedoico</div><div class="dm"><strong>Alvo:</strong> ATP-citrato liase (etapa ANTERIOR à HMG-CoA no mevalonato); pró-fármaco ativado pela ACSVL1 — presente no fígado, <em>ausente no músculo</em> → menor miopatia<br><strong>Dose:</strong> 180 mg/dia VO<br><strong>Redução LDL:</strong> 21–24% mono; 38% + ezetimiba<br><strong>CLEAR Outcomes:</strong> ↓ MACE 13% em intolerantes a estatinas</div></div>
+        <div class="dc"><div class="dn">6. Resinas (Sequestradores)</div><div class="dm"><strong>Alvo:</strong> Ligam ácidos biliares no intestino → ↑ eliminação fecal → fígado usa colesterol para repor bile → ↑ receptores LDL<br><strong>Redução LDL:</strong> 15–30%<br><strong>Limitação:</strong> Podem ↑ TG; contraindicadas em hipertrigliceridemia; uso muito reduzido após mAb</div></div>
+      </div>
+      <h3>Potencial de Redução — Terapia Combinada</h3>
+      <table>
+        <tr><th>Combinação</th><th>Redução LDL-c Estimada</th></tr>
+        <tr><td>Estatina alta intensidade (EAI)</td><td>~52%</td></tr>
+        <tr><td>EAI + Ezetimiba</td><td>~65%</td></tr>
+        <tr><td><strong>EAI + Ezetimiba + Anti-PCSK9</strong></td><td>~85%</td></tr>
+        <tr><td>Bempedoico + Ezetimiba + Anti-PCSK9 (sem estatina)</td><td>~77%</td></tr>
+        <tr><td>EAI + Ezetimiba + Bempedoico + Anti-PCSK9</td><td>&gt;90%</td></tr>
+      </table>
+    </div>
+    <div class="tp" id="h03">
+      <div class="dg">
+        <div class="dc"><div class="dn">Fibratos (PPAR-α)</div><div class="dm"><strong>Alvo:</strong> Ativam PPAR-α → ↑ LPL → ↑ hidrólise de TG das VLDL/quilomícrons → ↓ TG 30–60% + ↑ HDL<br><strong>Posição:</strong> 1.ª linha para prevenção de pancreatite em TG ≥500 mg/dL. NÃO para redução de risco CV em estatina (FIELD, ACCORD, BIP, PROMINENT negativos)<br><strong>Contraindicação:</strong> Genfibrozila + estatina = CONTRAINDICADO</div></div>
+        <div class="dc"><div class="dn">Ômega-3 EPA Puro (Icosapenta etila)</div><div class="dm"><strong>Dose:</strong> 4 g/dia | ↓ TG 15–45%<br><strong>SBC 2025:</strong> Recomendação condicional em DCVA + TG 150–499 (não disponível no Brasil)<br><strong>ACC/AHA 2026:</strong> Posição especial (REDUCE-IT) para ↓ MACE<br><strong>EPA+DHA:</strong> Ambas recomendam CONTRA para prevenção CV</div></div>
+        <div class="dc"><div class="dn">Anti-ApoC-III (ASO)</div><div class="dm"><strong>Exemplos:</strong> Volanesorsena / Olezarsena<br><strong>Alvo:</strong> Degrada mRNA da ApoC-III → LPL desinibida → ↓ TG até 80%<br><strong>Indicação:</strong> SQF (Síndrome Quilomicronemia Familiar) com TG ≥500 → risco de pancreatite<br><strong>ACC/AHA 2026:</strong> Olezarsena COR I (dados 2025)</div></div>
+        <div class="dc"><div class="dn">Niacina</div><div class="dm"><strong>Mecanismo:</strong> ↓ lipase adiposa → ↓ AGL → ↓ VLDL → ↓ TG + ↑ HDL<br><strong>Posição:</strong> USO MUITO RESTRITO — AIM-HIGH e HPS2-THRIVE negativos. Flush, hepatotoxicidade, hiperglicemia, hiperuricemia.</div></div>
+      </div>
+    </div>
+    <div class="tp" id="h04">
+      <h3>Divergências SBC 2025 × ACC/AHA 2026</h3>
+      <table>
+        <tr><th>Ponto</th><th>SBC 2025</th><th>ACC/AHA 2026</th></tr>
+        <tr><td>Categoria de risco extremo</td><td>Meta &lt;40 mg/dL (existe formalmente)</td><td>Não existe; usa &lt;55 para altíssimo risco</td></tr>
+        <tr><td><strong>Inclisirana</strong></td><td><strong>Forte</strong> — equivalente aos mAb</td><td><strong>COR IIa</strong> — aguarda ensaios de desfechos cardiovasculares</td></tr>
+        <tr><td>Suplementos dietéticos</td><td>Recomendação condicional (fitoesteróis, EPA+DHA)</td><td><strong>Classe III</strong> (Sem Benefício) — contra indicados</td></tr>
+        <tr><td>Escalonamento PCSK9</td><td>Após estatina + ezetimiba</td><td>Pode ir direto ao mAb (sem obrigatoriedade de ezetimiba antes)</td></tr>
+        <tr><td>Sobreviventes de câncer</td><td>Não aborda especificamente</td><td>COR I — tratar como risco equivalente</td></tr>
+        <tr><td>Olezarsena (Anti-ApoC-III)</td><td>Menção exploratória</td><td>COR I para SQF (novidade 2025)</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="qs" id="qs">
+  <h2>20 Questões — Padrão Exato Prof. João Vítor Galo Esteves</h2>
+  <p class="sub2">ENADE · Vinheta Clínica Real · Bloom: Análise/Avaliação · Dificuldade: Muito Difícil · Feedback de Cada Distrator</p>
+
+
+<div class="qc">
+<div class="qh"><div class="qn">1</div><div class="qm"><span>🏷 Semiologia Respiratória — Condensação vs Derrame</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 64 anos, ex-tabagista, com febre (39,1°C), tosse produtiva esverdeada há 5 dias e dispneia progressiva. Ao exame físico: expansibilidade torácica reduzida à direita; frêmito tóraco-vocal aumentado em base direita; macicez à percussão em base direita; murmúrio vesicular abolido em base direita; sopro tubário e crepitações finas em terço inferior do hemitórax direito. Raio-X: opacidade homogênea em lobo inferior direito com broncograma aéreo.</div>
+<p class="qs2">Considerando a integração entre a semiologia torácica, a anatomia das vias aéreas e a fisiopatologia do distúrbio ventilatório, assinale a alternativa que melhor explica por que o conjunto de achados aponta para síndrome de condensação com brônquio pérvio — e não para síndrome de derrame pleural:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>O sopro tubário, presente em ambas as síndromes, não auxilia na diferenciação; é o frêmito tóraco-vocal abolido associado à macicez que confirma condensação com brônquio pérvio.</li><li onclick="SO(this,false)"><span class="ql">B)</span>Na síndrome de condensação, o frêmito tóraco-vocal está abolido porque o parênquima sólido atua como barreira à transmissão vibratória; no derrame pleural, o FTV está aumentado pelo efeito condutor do líquido.</li><li onclick="SO(this,true)"><span class="ql">C)</span>O FTV aumentado indica que o som se propaga mais facilmente pelo parênquima consolidado (sólido = melhor condutor de vibração) que pelo ar; o sopro tubário confirma que o brônquio está pérvio, transmitindo o som brônquico ao tecido condensado — achado impossível no derrame (sem parênquima aerado acima do líquido).</li><li onclick="SO(this,false)"><span class="ql">D)</span>A macicez à percussão é o único achado que diferencia as duas síndromes; o FTV e o sopro tubário têm valores equivalentes em ambas, sendo a percussão o exame de maior acurácia semiológica.</li><li onclick="SO(this,false)"><span class="ql">E)</span>O broncograma aéreo no raio-X é o único achado que confirma condensação; os achados do exame físico são inespecíficos e não permitem distinguir consolidação de derrame pleural à beira do leito.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> na consolidação, os alvéolos são preenchidos por exsudato inflamatório (sólido/líquido), que conduz melhor as vibrações do que o ar — por isso o FTV está aumentado. O brônquio pérvio transmite o som respiratório gerado nas vias aéreas proximais diretamente ao parênquima condensado, gerando sopro tubário. No derrame pleural, a coleção líquida entre a parede torácica e o pulmão amortece as vibrações (FTV abolido) e isola o parênquima do tórax (sem sopro tubário, MV abolido). O broncograma aéreo confirma parênquima consolidado com brônquio pérvio.</p><p><strong>Por que A está errada:</strong> o FTV está AUMENTADO na condensação, não abolido. É o derrame que abole o FTV.</p><p><strong>Por que B está errada:</strong> inverte exatamente os achados: FTV abolido é o derrame; FTV aumentado é a condensação.</p><p><strong>Por que D está errada:</strong> tanto a condensação quanto o derrame causam macicez; o FTV e o sopro tubário são essenciais para a diferenciação.</p><p><strong>Por que E está errada:</strong> o exame físico tem alta acurácia para diferenciar as duas síndromes — FTV, sopro tubário e qualidade da macicez são achados complementares ao Rx.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">2</div><div class="qm"><span>🏷 Ondas Venosas Jugulares — BAV Total</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 74 anos, hipertenso, dá entrada ao PS com tontura intensa e síncope. PA 86/58 mmHg, FC 32 bpm, SpO₂ 96%. Ao exame do pescoço, observam-se pulsações venosas jugulares com ondas de amplitude muito variável: a maioria é de baixa amplitude, mas surgem esparsamente, sem periodicidade, ondas de amplitude exuberante. O pulso radial é lento e regular. ECG: ondas P com frequência de 78 bpm sem relação fixa com os complexos QRS, que ocorrem a 32 bpm com morfologia alargada.</div>
+<p class="qs2">Considerando a integração entre a fisiologia do pulso venoso jugular, a correlação das ondas com o ciclo cardíaco e o diagnóstico eletrocardiográfico, assinale a alternativa que melhor explica o mecanismo das ondas jugulares de grande amplitude esporádicas:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Ondas "v" gigantes regulares por insuficiência tricúspide; o ritmo lento dilata o VD cronicamente, amplificando a regurgitação sistólica e gerando ondas proeminentes a cada batimento.</li><li onclick="SO(this,false)"><span class="ql">B)</span>Sinal de Kussmaul: a PVJ sobe paradoxalmente na inspiração por compressão pericárdica; somado à bradicardia, configura pericardite constritiva associada a bloqueio de condução.</li><li onclick="SO(this,true)"><span class="ql">C)</span>Ondas "a" em canhão irregulares: na dissociação AV completa (BAV de 3.º grau), o átrio direito contrai de modo independente e, quando coincide aleatoriamente com a sístole ventricular (valva tricúspide fechada), a pressão atrial retrocede para as jugulares gerando pico de grande amplitude — esporádico e irregular pela natureza randômica da dissociação.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Ondas "a" em canhão regulares por taquicardia juncional AV: o átrio sempre contrai contra valva fechada, produzindo ondas grandes a cada batimento, de modo rítmico e previsível.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Abolição da descida "y" por estenose tricúspide grave, com ondas proto-diastólicas de grande amplitude irregulares por variação do enchimento atrial.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> no BAV total (dissociação AV completa), átrios e ventrículos se contraem de modo completamente independente. Quando — por coincidência aleatória — a contração atrial direita ocorre durante a sístole ventricular (com a valva tricúspide já fechada), o sangue atrial não tem saída e a pressão retrocede para as veias jugulares, gerando a onda "a" em canhão. A natureza aleatória da coincidência explica a irregularidade e a esporadicidade das ondas. A tríade clínica — bradicardia extrema + pulso regular + ondas jugulares de amplitude variável com picos esporádicos + dissociação P-QRS ao ECG — é diagnóstica.</p><p><strong>Por que A está errada:</strong> ondas "v" gigantes são sistólicas (sincrônicas com o pulso carotídeo) e surgem a cada batimento, de modo regular — não esporádico.</p><p><strong>Por que B está errada:</strong> o sinal de Kussmaul é elevação da PVJ na inspiração (tamponamento/constritiva), mecanismo sem relação com a dissociação AV.</p><p><strong>Por que D está errada:</strong> ondas "a" em canhão REGULARES ocorrem no ritmo juncional, com proporção fixa entre contração atrial e ventricular. No BAV total a dissociação é randômica → ondas IRREGULARES.</p><p><strong>Por que E está errada:</strong> a estenose tricúspide aumenta a onda "a" e lentifica a descida "y" em ritmo sinusal, sem o padrão de dissociação AV.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">3</div><div class="qm"><span>🏷 Ondas Venosas Jugulares — Insuficiência Tricúspide Grave</span><span>🔬 Avaliação</span><span>⚡ MD</span></div></div>
+<div class="qv">Mulher de 56 anos, com dispneia progressiva e múltiplas internações por anasarca. FC 94 bpm, PA 106/68 mmHg. Pulsações jugulares proeminentes, visíveis e sincrônicas com o pulso carotídeo, a cada batimento. Fígado palpável 6 cm do rebordo costal, pulsátil à palpação. Sopro holossistólico 4+/6 em foco tricúspide que se intensifica nitidamente na inspiração profunda. Edema bilateral de MMII 3+.</div>
+<p class="qs2">Considerando a integração entre a fisiopatologia valvar, a gênese das ondas venosas jugulares e o exame físico, qual conjunto de achados confirma insuficiência tricúspide grave e distingue esta condição de insuficiência mitral com congestão direita?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Ondas "a" em canhão irregulares e bradicardia; a IT é secundária ao BAV completo; o ECG confirmaria com dissociação P-QRS.</li><li onclick="SO(this,false)"><span class="ql">B)</span>Sinal de Kussmaul positivo com bulhas abafadas; pericardite constritiva com regurgitação funcional das valvas AV por dilatação anular.</li><li onclick="SO(this,true)"><span class="ql">C)</span>Ondas "v" gigantes regulares + fígado pulsátil sistólico + Sinal de Rivero-Carvallo (sopro que aumenta na inspiração): a regurgitação sistólica VD→AD transmite pressão à jugular a cada batimento (sincrônica com carotídea); o aumento do retorno venoso direito na inspiração amplifica o sopro de IT, mas não o de IM.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Descida "y" lenta com PVJ elevada; estenose tricúspide impede o esvaziamento do AD; o fígado pulsátil é consequência da hipertensão venosa sistêmica.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Ondas "v" irregulares por FA; ausência de onda "a" confirma que as pulsações jugulares são enchimento venoso passivo normal sem contração atrial.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> na IT grave, durante a sístole ventricular parte do volume é ejetada retrogradamente do VD para o AD e daí para as jugulares, produzindo onda "v" gigante <em>sincrônica com o pulso carotídeo</em> (ambos sistólicos). O fígado pulsátil confirma transmissão sistólica ao sistema venoso hepático. O sinal de Rivero-Carvallo — aumento do sopro na inspiração — distingue IT de IM: o aumento do retorno venoso direito na inspiração amplifica o fluxo pela tricúspide incompetente; o sopro de IM não aumenta (ventrículo esquerdo).</p><p><strong>Por que A está errada:</strong> ondas "a" em canhão são pré-sistólicas e irregulares, ligadas à dissociação AV — mecanismo oposto à IT.</p><p><strong>Por que B está errada:</strong> Kussmaul + bulhas abafadas apontam para tamponamento/constritiva, não para regurgitação valvar sistólica.</p><p><strong>Por que D está errada:</strong> estenose tricúspide gera onda "a" aumentada e descida "y" lenta — não onda "v" gigante sistólica.</p><p><strong>Por que E está errada:</strong> na FA, a onda "a" desaparece; mas a onda "v" gigante permanece regular se houver IT — não é irregular.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">4</div><div class="qm"><span>🏷 IRA — NTA vs NIA — Sedimento Urinário</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 66 anos, diabético, internado por sepse pulmonar. Recebe vancomicina associada a piperacilina-tazobactam há 6 dias. Creatinina basal 1,0 mg/dL; atual 2,9 mg/dL. Débito urinário 0,28 mL/kg/h. Sem hipotensão nas últimas 48h; 3 L de cristaloide nas últimas 24h sem melhora. FENa 3,4%. Sedimento: cilindros granulosos acastanhados abundantes. Sem rash, febre nova ou eosinofilúria.</div>
+<p class="qs2">Considerando a integração entre os critérios KDIGO, o padrão de FENa e os achados de sedimento, assinale o diagnóstico e o principal agente causal:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>IRA pré-renal persistente; FENa de 3,4% pode ser falso por desidratação prévia; expansão com mais 2 L confirma ou afasta a hipótese.</li><li onclick="SO(this,true)"><span class="ql">B)</span>NTA por vancomicina (potencializada pela combinação com piperacilina-tazobactam): FENa &gt;2% indica túbulo lesado sem capacidade de reabsorver Na⁺; cilindros granulosos "marrom-lama" = células tubulares necróticas descamadas; não-resposta à expansão confirma lesão estrutural.</li><li onclick="SO(this,false)"><span class="ql">C)</span>NIA por piperacilina-tazobactam: cilindros granulosos são marcadores específicos de NIA; FENa &gt;1% confirma componente glomerular; iniciar prednisona imediatamente.</li><li onclick="SO(this,false)"><span class="ql">D)</span>IRA pós-renal por bexiga neurogênica diabética; débito reduzido com FENa alto por retenção crônica; solicitar ultrassonografia vesical urgente.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Glomerulonefrite pós-infecciosa pela pneumonia; biópsia renal urgente está indicada antes de qualquer outra conduta.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> FENa &gt;2% indica que o túbulo está lesado e não consegue reabsorver Na⁺. Cilindros granulosos acastanhados ("marrom-lama") são células tubulares necróticas descamando no lúmen — marcador de NTA. A combinação vancomicina + piperacilina-tazobactam é nefrotóxica e multiplica o risco de NTA. A não-resposta a 3 L de expansão afasta IRA pré-renal (que melhoraria com fluidos).</p><p><strong>Por que A está errada:</strong> na IRA pré-renal, FENa é &lt;1% (túbulo íntegro reabsorve Na⁺). FENa de 3,4% com cilindros granulosos = lesão estrutural estabelecida; mais fluidos piorariam sobrecarga.</p><p><strong>Por que C está errada:</strong> NIA tem sedimento com cilindros de LEUCÓCITOS, piúria estéril e eosinofilúria — achados ausentes aqui. Cilindros granulosos acastanhados são de NTA.</p><p><strong>Por que D está errada:</strong> não há dados de retenção urinária; FENa alto decorre de lesão tubular, não de obstrução.</p><p><strong>Por que E está errada:</strong> GN cursa com cilindros hemáticos e hematúria dismórfica; o sedimento aqui é de NTA.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">5</div><div class="qm"><span>🏷 Hipolipemiantes — Mecanismo PCSK9 e Lp(a)</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 53 anos, 3 meses após IAMSSST, em rosuvastatina 40 mg + ezetimiba 10 mg, sem efeitos adversos. LDL-c atual 102 mg/dL; LDL-c basal pré-internação 228 mg/dL; Lp(a) 186 nmol/L; ApoB 95 mg/dL.</div>
+<p class="qs2">Considerando as metas terapêuticas em prevenção secundária de muito alto risco segundo a SBC 2025 e a ACC/AHA 2026, e o papel da Lp(a) elevada, assinale a alternativa que melhor integra o raciocínio farmacológico:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>LDL-c de 102 mg/dL está dentro da meta de prevenção secundária; a adição de inibidor de PCSK9 é desnecessária e a Lp(a) não tem alvo terapêutico específico.</li><li onclick="SO(this,false)"><span class="ql">B)</span>A meta em prevenção secundária é &lt;70 mg/dL; o LDL está acima, mas a Lp(a) elevada é marcador prognóstico sem intervenção disponível; iniciar fenofibrato para reduzir ambos.</li><li onclick="SO(this,true)"><span class="ql">C)</span>Em prevenção secundária de muito alto risco a meta de LDL é &lt;50 mg/dL (SBC) ou &lt;55 mg/dL (AHA) com redução ≥50% do basal; LDL de 102 mg/dL está acima de ambas; Lp(a) de 186 nmol/L (≥125 nmol/L) é fator agravante; inibidores de PCSK9 são a única classe disponível que também reduz Lp(a) em 20–30%, reforçando a indicação.</li><li onclick="SO(this,false)"><span class="ql">D)</span>A inclisirana deve ser prescrita por ter o mesmo nível de evidência dos mAb em ambas as diretrizes e ter a vantagem da dosagem semestral.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Fenofibrato é a melhor adição, pois a Lp(a) elevada associa-se à hipertrigliceridemia e os fibratos têm evidência cardiovascular em estudos FIELD e ACCORD.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> pós-IAM = muito alto risco (SBC: meta &lt;50; AHA: meta &lt;55) com redução ≥50% do basal. Basal 228 mg/dL → meta máxima ≤114 mg/dL pela redução %, mas a meta absoluta é mais restritiva. LDL de 102 está acima. Lp(a) de 186 nmol/L (&gt;125 nmol/L) é fator agravante reconhecido, e inibidores de PCSK9 são a única classe disponível que reduz Lp(a) 20–30%. Mecanismo: bloqueiam PCSK9 circulante → receptor de LDL não é degradado lisossomalmente → ↑ reciclagem na superfície do hepatócito → ↑ remoção de LDL e Lp(a).</p><p><strong>Por que A está errada:</strong> 102 mg/dL está acima da meta de muito alto risco em ambas as diretrizes.</p><p><strong>Por que B está errada:</strong> subestima a meta (que é &lt;50/55, não &lt;70). Fibratos não reduzem Lp(a) e são negativos para desfechos CV na maioria dos ensaios.</p><p><strong>Por que D está errada:</strong> inclisirana é COR IIa na ACC/AHA 2026 — não equivalente aos mAb em ambas as diretrizes.</p><p><strong>Por que E está errada:</strong> fibratos não reduzem Lp(a); FIELD e ACCORD foram negativos para CV com fenofibrato em estatina.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">6</div><div class="qm"><span>🏷 IRA — Síndrome Hepatorrenal</span><span>🔬 Avaliação</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 52 anos, cirrótico MASLD (MELD-Na 26), ascite tensa, furosemida 80 mg + espironolactona 200 mg. Creatinina 1,0 → 2,8 mg/dL em 7 dias. PA 92/60 mmHg. Suspensão de diuréticos + albumina 1 g/kg/48h → creatinina 2,6 mg/dL. Sedimento branco; FENa 0,35%; Doppler renal: índice de resistência 0,87.</div>
+<p class="qs2">Qual o diagnóstico e o tratamento de primeira linha conforme o International Club of Ascites (ICA)?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>IRA pré-renal persistente; albumina deve ser mantida por mais 48h antes de mudar diagnóstico.</li><li onclick="SO(this,false)"><span class="ql">B)</span>NTA por isquemia crônica; FENa &lt;1% pode ocorrer em NTA do cirrótico; conduta é restrição hídrica.</li><li onclick="SO(this,true)"><span class="ql">C)</span>SHR-IRA: vasodilatação esplâncnica por óxido nítrico → ativação SRAA + sistema simpático → vasoconstrição renal intensa (IR Doppler elevado) sem lesão tubular estrutural (sedimento branco, FENa &lt;1%); critério ICA: ausência de melhora após albumina 48h + sem nefrotóxico + sem choque; tratamento: terlipressina + albumina IV.</li><li onclick="SO(this,false)"><span class="ql">D)</span>GN crioglobulinêmica; FENa &lt;1% reflete lesão glomerular precoce; biópsia urgente.</li><li onclick="SO(this,false)"><span class="ql">E)</span>IRA pós-renal; IR Doppler elevado reflete compressão extrínseca; urografia TC urgente.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> SHR-IRA (antes SHR tipo 1): disfunção renal funcional do cirrótico avançado. A vasodilatação esplâncnica por NO reduz o volume circulante efetivo → SRAA + SNS → vasoconstrição renal intensa (IR Doppler &gt;0,80) → sem lesão tubular (sedimento branco, FENa &lt;1%). Critério ICA 2019: Cr ↑ + sem melhora após albumina 1 g/kg/48h + retirada de diuréticos + sem choque + sem nefrotóxico. Tratamento padrão: terlipressina + albumina (evidência de nível 1 conforme EASL/AASLD).</p><p><strong>Por que A está errada:</strong> a ausência de resposta após 48h de albumina pelo próprio critério ICA já descarta IRA pré-renal.</p><p><strong>Por que B está errada:</strong> NTA tem FENa &gt;2% e cilindros granulosos — ausentes aqui.</p><p><strong>Por que D está errada:</strong> GN tem cilindros hemáticos e hematúria dismórfica; sedimento branco afasta lesão glomerular.</p><p><strong>Por que E está errada:</strong> IR elevado no Doppler renal do SHR reflete vasoconstrição arterial funcional, não obstrução mecânica.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">7</div><div class="qm"><span>🏷 Isquemia Mesentérica — Dissociação Dor-Exame</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 71 anos, FA crônica sem anticoagulação, chega com dor abdominal difusa de início súbito há 2h, "a pior dor da vida". Abdome levemente distendido, flácido, Blumberg negativo, ruídos hidroaéreos diminuídos. PA 118/74 mmHg, FC 106 bpm, lactato 1,8 mmol/L, amilase 308 U/L. O plantonista questiona a credibilidade da queixa pelo abdome flácido.</div>
+<p class="qs2">Considerando a histologia da parede intestinal e a fisiopatologia das vias aferentes de dor visceral e somática, assinale a alternativa que melhor explica a dissociação entre sintoma intenso e exame físico discreto:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>A mucosa é a camada mais próxima da cavidade peritoneal livre; sua isquemia ativa imediatamente os aferentes do peritônio parietal, gerando dor somática intensa já nas fases iniciais.</li><li onclick="SO(this,true)"><span class="ql">B)</span>A dor é mediada por aferentes viscerais nas camadas internas da parede intestinal (mucosa→submucosa→muscular); como a serosa permanece íntegra nas fases iniciais, não há irritação peritoneal — Blumberg negativo e abdome flácido apesar da dor visceral intensa.</li><li onclick="SO(this,false)"><span class="ql">C)</span>A FA causa vasoespasmo dos aferentes esplâncnicos, amplificando a dor visceral desproporcionalmente ao dano real.</li><li onclick="SO(this,false)"><span class="ql">D)</span>A hipoperfusão gera lactato intraluminal estimulando quimiorreceptores do plexo mioentérico, com hiperalgesia sem correlato peritoneal.</li><li onclick="SO(this,false)"><span class="ql">E)</span>A flacidez abdominal reflete paralisia de musculatura lisa por mediadores inflamatórios; a dor é real mas o espasmo está abolido, mascarando a rigidez esperada.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> a isquemia intestinal progride de dentro para fora — mucosa (mais metabolicamente ativa) → submucosa → muscular → serosa. Nas fases iniciais apenas as camadas internas são comprometidas. Os aferentes viscerais (fibras C do plexo celíaco/mesentérico) geram dor difusa, intensa e mal-localizada. A serosa está íntegra → sem irritação do peritônio parietal → Blumberg negativo, abdome flácido. Quando a serosa for atingida (necrose transmural) surgirá peritonite — mas aí a janela terapêutica já se fechou.</p><p><strong>Por que A está errada:</strong> inverte a anatomia — a mucosa fica voltada para o lúmen, não para a cavidade peritoneal; a serosa é quem contata o peritônio.</p><p><strong>Por que C está errada:</strong> a FA não causa vasoespasmo dos aferentes; ela produz êmbolos que ocluem a artéria mesentérica.</p><p><strong>Por que D está errada:</strong> não existe essa via de hiperalgesia visceral central por lactato intraluminal.</p><p><strong>Por que E está errada:</strong> a flacidez abdominal NÃO reflete paralisia — reflete serosa intacta. Peritonite franca com serosa inflamada geraria rigidez, não flacidez.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">8</div><div class="qm"><span>🏷 Isquemia Mesentérica — NOMI</span><span>🔬 Avaliação</span><span>⚡ MD</span></div></div>
+<div class="qv">Paciente de 66 anos, 4.º dia pós-operatório de revascularização miocárdica com CEC, em noradrenalina 0,42 mcg/kg/min. Distensão abdominal progressiva, intolerância enteral, lactato 4,6 mmol/L. Angio-TC: AMS pérvia sem falha de enchimento, estreitamento difuso de ramos, redução do realce parietal de alças. Sem pneumatose.</div>
+<p class="qs2">Qual o diagnóstico e a conduta prioritária segundo as diretrizes WSES 2022?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>TVM: iniciar HNF imediatamente.</li><li onclick="SO(this,true)"><span class="ql">B)</span>NOMI: AMS pérvia porque o mecanismo é vasoconstrição esplâncnica reflexa ao baixo débito e aos vasopressores; conduta: otimizar débito cardíaco, reduzir/substituir vasoconstritores, considerar papaverina intra-arterial. Cirurgia apenas com peritonite franca.</li><li onclick="SO(this,false)"><span class="ql">C)</span>Embolia distal: embolectomia cirúrgica de emergência.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Síndrome compartimental: laparotomia descompressiva imediata.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Colite isquêmica da AMI: colonoscopia diagnóstica antes de qualquer intervenção.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> NOMI = isquemia mesentérica não-oclusiva. A AMS está pérvia porque não há oclusão mecânica — o mecanismo é vasoconstrição esplâncnica reflexa ao baixo débito e aos vasopressores (redistribuição de fluxo para coração e cérebro às custas do território mesentérico). Contexto típico: pós-CEC, vasopressores, baixo débito. Conduta segue o mecanismo: reverter a vasoconstrição (otimizar DC com dobutamina, reduzir noradrenalina), papaverina intra-arterial como vasodilatador direto. Cirurgia reservada para peritonite/necrose.</p><p><strong>Por que A está errada:</strong> TVM teria trombo venoso visível (sinal do alvo na VMS); a AMS pérvia não apoia TVM.</p><p><strong>Por que C está errada:</strong> embolia teria falha de enchimento arterial; o padrão de estreitamento difuso de ramos com AMS pérvia é de vasoconstrição.</p><p><strong>Por que D está errada:</strong> síndrome compartimental necessita de pressão intra-abdominal medida e contexto clínico diferente.</p><p><strong>Por que E está errada:</strong> os achados são de delgado (território AMS), não de cólon; colonoscopia seria inadequada e perigosa.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">9</div><div class="qm"><span>🏷 Semiologia Respiratória — Pneumotórax</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 22 anos, alto, magro, estudante universitário, com dor torácica súbita à esquerda e dispneia há 1 hora. Sem febre, tosse ou expectoração. Ao exame: expansibilidade torácica reduzida à esquerda; frêmito tóraco-vocal abolido à esquerda; hipersonoridade à percussão em hemitórax esquerdo; murmúrio vesicular abolido à esquerda. FC 104 bpm, PA 118/76 mmHg, SpO₂ 94%.</div>
+<p class="qs2">Considerando a integração entre semiologia respiratória e fisiopatologia do distúrbio ventilatório, qual síndrome está presente e como diferenciá-la da síndrome de derrame pleural, que também abole o MV e o FTV?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Síndrome de derrame pleural à esquerda; a hipersonoridade é inespecífica em jovens magros; o FTV abolido confirma derrame.</li><li onclick="SO(this,false)"><span class="ql">B)</span>Síndrome de condensação à esquerda; o MV abolido e o FTV diminuído são compatíveis com consolidação maciça; radiografia confirmará.</li><li onclick="SO(this,true)"><span class="ql">C)</span>Síndrome de pneumotórax: FTV abolido + hipersonoridade (timpanismo) + MV abolido = ar livre na pleura. Distingue-se do derrame por dois achados opostos: o derrame produz macicez (líquido) enquanto o pneumotórax produz hipersonoridade (ar); no derrame o FTV pode estar presente acima do nível do líquido, enquanto no pneumotórax está uniformemente abolido.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Síndrome obstrutiva com hiperinsuflação unilateral; sibilos ausentes porque o paciente não consegue expirar; a hipersonoridade reflete aprisionamento de ar nas vias aéreas distais.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Derrame pleural com coleção exsudativa; a hipersonoridade reflete o conteúdo proteico do exsudato que transmite melhor as ondas de percussão que a água.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> a diferença fundamental entre pneumotórax e derrame pleural é a <em>percussão</em>. Derrame: macicez (líquido amortece a percussão). Pneumotórax: hipersonoridade/timpanismo (ar livre ressoa). Ambos abolem FTV e MV. O perfil clínico (jovem, alto, magro, dor súbita sem febre) é típico de pneumotórax espontâneo primário (ruptura de bleb subpleural).</p><p><strong>Por que A está errada:</strong> derrame produziria macicez, não hipersonoridade; a hipersonoridade é específica de pneumotórax.</p><p><strong>Por que B está errada:</strong> condensação aumenta o FTV (sólido conduz melhor o som) e produz sopro tubário — achados opostos ao encontrado.</p><p><strong>Por que D está errada:</strong> síndrome obstrutiva não abole o MV e não produz hipersonoridade unilateral súbita em jovem sadio.</p><p><strong>Por que E está errada:</strong> exsudato não produz hipersonoridade; não existe esse mecanismo acústico.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">10</div><div class="qm"><span>🏷 Hipolipemiantes — Bempedoico em Intolerante</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Mulher de 61 anos, pós-SCA há 6 meses. Rosuvastatina 40 mg e atorvastatina 80 mg geraram mialgia incapacitante com CK 3× o LSN documentado em ambas. Em ezetimiba 10 mg isolada: LDL-c 146 mg/dL. O cardiologista cogita iniciar ácido bempedoico.</div>
+<p class="qs2">Qual a vantagem mecanística do ácido bempedoico que justifica seu uso em intolerantes a estatinas, e qual o estudo de desfecho cardiovascular que o fundamenta?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>O bempedoico inibe a HMG-CoA redutase num sítio diferente, sem consumo de CoQ10 muscular; o IMPROVE-IT demonstrou ↓13% nos MACE.</li><li onclick="SO(this,true)"><span class="ql">B)</span>O bempedoico inibe a ATP-citrato liase (etapa anterior à HMG-CoA redutase no mevalonato); é pró-fármaco ativado pela ACSVL1 — presente no fígado, ausente no músculo esquelético — resultando em menor risco de miopatia; o CLEAR Outcomes (n≈13.970) demonstrou ↓13% nos MACE em intolerantes a estatinas.</li><li onclick="SO(this,false)"><span class="ql">C)</span>O bempedoico inibe a NPC1L1 intestinal com maior potência que a ezetimiba; o FOURIER demonstrou ↓15% nos MACE.</li><li onclick="SO(this,false)"><span class="ql">D)</span>O bempedoico bloqueia a PCSK9 intracelularmente; por não ativar o músculo esquelético, não produz miopatia; sua dose é semestral.</li><li onclick="SO(this,false)"><span class="ql">E)</span>O bempedoico ativa o PPAR-α hepático, reduzindo VLDL e TG; é indicado primariamente para hipertrigliceridemia sem risco de miopatia.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> a ATP-citrato liase catalisa citrato → acetil-CoA, etapa ANTERIOR à HMG-CoA redutase na via do mevalonato. O bempedoico é pró-fármaco que requer a enzima ACSVL1 para ativação — presente no fígado, <em>ausente no músculo esquelético</em> → ativação seletivamente hepática → menor risco de miopatia. CLEAR Outcomes (n≈13.970 intolerantes a estatinas): LDL-c ↓29,2 mg/dL vs. placebo; ↓MACE 13% (RR 0,87; IC95% 0,79–0,96).</p><p><strong>Por que A está errada:</strong> o bempedoico não inibe a HMG-CoA redutase; atua a montante. IMPROVE-IT é estudo da ezetimiba.</p><p><strong>Por que C está errada:</strong> NPC1L1 é o alvo da ezetimiba. FOURIER é estudo do evolocumabe.</p><p><strong>Por que D está errada:</strong> dosagem semestral e mecanismo intracelular sobre PCSK9 descrevem a inclisirana.</p><p><strong>Por que E está errada:</strong> PPAR-α é o alvo dos fibratos; o bempedoico não atua nessa via.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">11</div><div class="qm"><span>🏷 Semiologia Cardiovascular — Identificação de B3 vs B4</span><span>🔬 Aplicação</span><span>⚡ Difícil</span></div></div>
+<div class="qv">Mulher de 68 anos, hipertensa há 20 anos, com dispneia progressiva há 3 semanas. Ao exame: FC 82 bpm, PA 168/102 mmHg, SpO₂ 91%. Ausculta cardíaca: ritmo regular em 3 tempos, com uma bulha extra ao final da diástole, imediatamente antes de B1, audível em foco mitral com o paciente em decúbito lateral esquerdo.</div>
+<p class="qs2">Considerando a gênese das bulhas cardíacas anômalas e sua correlação com a fisiopatologia da disfunção ventricular, assinale a alternativa que melhor identifica a bulha extra descrita e seu mecanismo:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>B3 (galope protodiastólico): o enchimento rápido inicial causa vibração de um VE dilatado e flácido; ocorre no início da diástole, logo após B2.</li><li onclick="SO(this,false)"><span class="ql">B)</span>B3: ocorre ao final da diástole e indica hipertrofia ventricular por sobrecarga pressórica crônica na hipertensa.</li><li onclick="SO(this,true)"><span class="ql">C)</span>B4 (galope pré-sistólico): contração atrial impulsiona sangue contra um VE rígido (disfunção diastólica por hipertrofia concêntrica da HAS); vibração na parede ventricular rígida gera a bulha ao final da diástole, imediatamente antes de B1.</li><li onclick="SO(this,false)"><span class="ql">D)</span>B4: ocorre no início da diástole e indica sobrecarga de volume do AD com regurgitação venosa.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Atrito pericárdico: a pericardite hipertensiva gera som audível ao final da diástole em foco mitral.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> a B4 (galope pré-sistólico ou telediastólico) ocorre imediatamente <em>antes</em> de B1, ao final da diástole, quando a contração atrial impulsiona sangue para um VE com complacência reduzida (rigidez). Na hipertensa crônica, a hipertrofia concêntrica do VE reduz a complacência → disfunção diastólica → B4. É audível em decúbito lateral esquerdo (aproxima o VE da parede torácica). Não ocorre na FA (sem contração atrial coordenada).</p><p><strong>Por que A está errada:</strong> a B3 ocorre no INÍCIO da diástole (protodiastólica), logo após B2, pelo enchimento rápido de um VE dilatado/flácido (disfunção sistólica). Aqui a bulha extra é ao final da diástole.</p><p><strong>Por que B está errada:</strong> B3 no início da diástole, não no final — confunde o momento temporal.</p><p><strong>Por que D está errada:</strong> a B4 é do lado esquerdo (VE rígido + contração de AE) não AD; e não ocorre no início da diástole.</p><p><strong>Por que E está errada:</strong> atrito pericárdico é em 2 tempos (inspiração e expiração), rude, localizado — não uma bulha extra isolada pré-sistólica.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">12</div><div class="qm"><span>🏷 Semiologia Respiratória — Síndrome Obstrutiva</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 58 anos, tabagista 40 maços-ano, com dispneia progressiva há 5 anos e piora aguda nas últimas 48h. Exame físico: tórax em barril; expansibilidade reduzida bilateralmente e simetricamente; FTV normal; hipersonoridade bilateral à percussão; MV muito reduzido bilateralmente; sibilos expiratórios difusos; uso de musculatura acessória. SpO₂ 85%.</div>
+<p class="qs2">Considerando a integração entre semiologia respiratória e fisiopatologia da síndrome obstrutiva, por que os achados deste paciente apontam para síndrome obstrutiva com aprisionamento de ar crônico — e não para síndrome de pneumotórax bilateral ou síndrome de condensação bilateral?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>A bilateralidade dos achados é inespecífica; somente a TC de tórax permite distinguir entre as três hipóteses com segurança.</li><li onclick="SO(this,true)"><span class="ql">B)</span>Síndrome obstrutiva: FTV normal (o parênquima está aerado, apenas com aprisionamento de ar — não há líquido ou sólido para alterar a transmissão vibratória), hipersonoridade bilateral simétrica (hiperinsulflação crônica), MV muito reduzido por destruição alveolar e air-trapping, sibilos expiratórios (estreitamento das vias aéreas com expiração prolongada). Pneumotórax bilateral seria evento catastrófico com instabilidade hemodinâmica grave; condensação bilateral teria FTV aumentado e macicez.</li><li onclick="SO(this,false)"><span class="ql">C)</span>Síndrome de condensação bilateral: o FTV normal e a hipersonoridade diferenciam condensação de pneumotórax, mas não de síndrome obstrutiva.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Síndrome de derrame pleural bilateral: FTV normal é compatível com pequeno derrame bilateral; hipersonoridade reflete o conteúdo proteico do exsudato.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Pneumotórax bilateral espontâneo: tabagista de longa data desenvolve bolhas enfisematosas que rompem bilateralmente; FTV abolido seria esperado, mas pode estar normal nos estágios iniciais.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> na síndrome obstrutiva com DPOC avançado: o FTV está normal porque o parênquima ainda está aerado (apenas hiperinsulflado e com destruição alveolar); a hipersonoridade bilateral e simétrica reflete aprisionamento de ar crônico; o MV muito reduzido decorre da destruição alveolar (menos unidades funcionais) e do air-trapping; os sibilos expiratórios surgem do estreitamento das vias aéreas por colapso dinâmico e muco. Pneumotórax bilateral seria emergência com instabilidade grave. Condensação bilateral teria FTV aumentado (parênquima sólido) e macicez.</p><p><strong>Por que A está errada:</strong> o exame físico é suficiente para distinguir as três síndromes; TC não é necessária para o raciocínio semiológico inicial.</p><p><strong>Por que C está errada:</strong> confunde o mecanismo — a condensação tem FTV aumentado, não normal.</p><p><strong>Por que D está errada:</strong> derrame bilateral teria macicez intensa e FTV abolido — opostos ao encontrado.</p><p><strong>Por que E está errada:</strong> pneumotórax bilateral teria FTV abolido e timpanismo, não FTV normal e sibilos.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">13</div><div class="qm"><span>🏷 Apendicite — Regra da Inversão + Alvarado</span><span>🔬 Avaliação</span><span>⚡ Difícil</span></div></div>
+<div class="qv">Jovem de 20 anos com vômitos intensos às 7h; 3 horas depois, dor abdominal periumbilical migrando para FID. Temperatura 37,9°C, Blumberg positivo em FID, Rovsing positivo, leucócitos 13.800/mm³ com desvio à esquerda, anorexia presente.</div>
+<p class="qs2">Qual a análise correta da cronologia e do escore de Alvarado, e qual a conduta?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>A cronologia com vômito precedendo a dor aplica a regra da inversão e exclui apendicite; investigar outras causas antes de qualquer conduta cirúrgica.</li><li onclick="SO(this,false)"><span class="ql">B)</span>Alvarado = 6 pontos (probabilidade moderada); solicitar TC antes de indicar cirurgia.</li><li onclick="SO(this,true)"><span class="ql">C)</span>A regra da inversão (vômito antes da dor) alerta para investigação rigorosa, mas não exclui apendicite quando o restante do quadro é congruente: migração da dor +1, Blumberg +1, febre +1, leucocitose +2, anorexia +1 = pelo menos 6–8 pontos; com Rovsing positivo (critério adicional), a probabilidade é alta; conduta: indicação cirúrgica.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Alvarado = 10 pontos; cirurgia imediata sem qualquer avaliação adicional.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Vômito antes da dor é patognomônico de gastroenterite viral; a migração para FID é coincidência; alta com hidratação oral.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> a regra da inversão (vômito antes da dor) reduz a probabilidade de apendicite mas NÃO a exclui. Quando o restante do quadro é fortemente congruente (migração da dor, Blumberg, febre, leucocitose, anorexia, Rovsing), o escore de Alvarado é ≥7, configurando alta probabilidade. A regra da inversão é sinal de alerta para investigação adicional rigorosa, não critério de exclusão absoluto.</p><p><strong>Por que A está errada:</strong> a regra da inversão alerta, não exclui; o contexto global do caso aponta para alta probabilidade de apendicite.</p><p><strong>Por que B está errada:</strong> subestima os pontos do Alvarado — o caso tem múltiplos critérios somados.</p><p><strong>Por que D está errada:</strong> Alvarado máximo é 9–10 e não afasta outros diagnósticos; a inversão cronológica exige avaliação cuidadosa antes de indicação cega.</p><p><strong>Por que E está errada:</strong> gastroenterite não produz migração para FID, Blumberg positivo nem leucocitose com desvio.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">14</div><div class="qm"><span>🏷 IAM — B4 vs TEP</span><span>🔬 Avaliação</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 60 anos, diabético, dispneia aguda e dor precordial há 90 min. SpO₂ 89%, FC 104 bpm. B4 em foco mitral, estertores bibasais. ECG: infra ST 1,5 mm V4–V6. Troponina 0→3h: 38→176 ng/L. Eco: FEVE 47%, hipocinesia anterolateral, padrão restritivo. D-dímero 1.020 ng/mL.</div>
+<p class="qs2">Por que a B4 em foco mitral ancora diagnóstico de congestão cardiogênica isquêmica e afasta TEP como mecanismo primário?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>D-dímero 1.020 ng/mL confirma TEP como diagnóstico primário; B4 é inespecífica e pode ocorrer no cor pulmonale.</li><li onclick="SO(this,true)"><span class="ql">B)</span>B4 resulta da contração atrial contra VE rígido (isquemia aguda) — fenômeno do lado esquerdo; TEP gera sobrecarga de câmaras DIREITAS, não B4 em foco mitral; hipocinesia anterolateral ao eco + curva de troponina + infra ST dinâmico são padrão coronariano incompatível com TEP como mecanismo primário.</li><li onclick="SO(this,false)"><span class="ql">C)</span>B4 e B3 têm o mesmo significado; TEP com sobrecarga direita pode gerar B4 em foco pulmonar facilmente confundível com B4 mitral.</li><li onclick="SO(this,false)"><span class="ql">D)</span>SpO₂ 89% + D-dímero elevado = TEP de alto risco; trombólise sistêmica antes de repetir troponina.</li><li onclick="SO(this,false)"><span class="ql">E)</span>B4 indica disfunção sistólica (VE dilatado); FEVE de 47% incompatível com B4 em IAM.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> a B4 é gerada pela vibração do VE rígido (isquemia, hipertrofia) ao receber a contração atrial — fenômeno exclusivo do lado esquerdo. O TEP gera sobrecarga de câmaras DIREITAS (cor pulmonale agudo), eventualmente B3/B4 em foco tricúspide/pulmonar, nunca B4 em foco mitral. Adicionalmente, hipocinesia anterolateral (VE, não VD) + curva ascendente de troponina + infra ST dinâmico formam padrão coronariano incompatível com TEP como mecanismo primário.</p><p><strong>Por que A está errada:</strong> D-dímero é inespecífico — eleva-se em inflamação e no próprio IAM.</p><p><strong>Por que C está errada:</strong> B4 (disfunção diastólica/rigidez) e B3 (disfunção sistólica/dilatação) têm mecanismos e momentos distintos no ciclo cardíaco.</p><p><strong>Por que D está errada:</strong> D-dímero e SpO₂ não fecham diagnóstico de TEP nem indicam trombólise empírica.</p><p><strong>Por que E está errada:</strong> B4 é marcador de rigidez ventricular (disfunção diastólica), não de disfunção sistólica; pode coexistir com FEVE preservada ou levemente reduzida.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">15</div><div class="qm"><span>🏷 Hipolipemiantes — Inclisirana vs mAb — Divergência entre Diretrizes</span><span>🔬 Avaliação</span><span>⚡ MD</span></div></div>
+<div class="qv">Médico de clínica geral discute com colega cardiologista se a inclisirana tem o mesmo nível de evidência que o evolocumabe em paciente com DCVA estabelecida e LDL-c 90 mg/dL apesar de estatina + ezetimiba.</div>
+<p class="qs2">Qual a posição correta comparando SBC 2025 e ACC/AHA 2026 sobre a inclisirana, e qual o fundamento da diferença?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Ambas posicionam a inclisirana com COR I / recomendação forte, equivalente ao evolocumabe, pois os ensaios ORION-4 e VICTORION-2P já foram publicados.</li><li onclick="SO(this,true)"><span class="ql">B)</span>SBC 2025 posiciona com recomendação forte (equivalente aos mAb); ACC/AHA 2026 é mais cautelosa com COR IIa — aguarda ensaios de DESFECHOS CARDIOVASCULARES concluídos (ORION-4 e VICTORION-2P previstos 2026–2027), já que evolocumabe e alirocumabe têm FOURIER e ODYSSEY OUTCOMES com desfechos cardiovasculares concluídos.</li><li onclick="SO(this,false)"><span class="ql">C)</span>ACC/AHA 2026 posiciona inclisirana como COR I superior aos mAb; SBC 2025 é mais cautelosa por não ter dados brasileiros.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Ambas aguardam os ensaios de desfecho; inclisirana não pode ser prescrita fora de ensaios clínicos.</li><li onclick="SO(this,false)"><span class="ql">E)</span>A diferença é apenas posológica; ambas reconhecem evidência equivalente de desfecho.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> divergência explícita e clinicamente relevante. SBC 2025: inclisirana com recomendação forte, equivalente aos mAb. ACC/AHA 2026: COR IIa — mais conservadora porque a inclisirana ainda não tem ensaio de DESFECHOS CARDIOVASCULARES concluído, ao contrário do evolocumabe (FOURIER, ↓MACE) e alirocumabe (ODYSSEY OUTCOMES, ↓MACE e mortalidade). Essa diferença reflete filosofias distintas de adoção: a SBC aceita dados de segurança e eficácia em LDL-c; a ACC/AHA aguarda confirmação de desfechos clínicos.</p><p><strong>Por que A está errada:</strong> ORION-4 e VICTORION-2P estavam previstos para 2026–2027; não foram publicados antes das diretrizes.</p><p><strong>Por que C está errada:</strong> a ACC/AHA não posiciona inclisirana acima dos mAb.</p><p><strong>Por que D está errada:</strong> a inclisirana pode ser prescrita na prática clínica onde aprovada; a SBC a recomenda formalmente.</p><p><strong>Por que E está errada:</strong> a diferença não é só posológica — é de nível de evidência de desfechos cardiovasculares.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">16</div><div class="qm"><span>🏷 IRA — KDIGO — Critérios e Estadiamento</span><span>🔬 Aplicação</span><span>⚡ Difícil</span></div></div>
+<div class="qv">Paciente de 74 anos, creatinina basal 0,9 mg/dL há 1 semana. Hoje: creatinina 1,2 mg/dL (↑0,3 mg/dL em 48h). Débito urinário das últimas 7h: 0,46 mL/kg/h. Assintomático.</div>
+<p class="qs2">Pelo critério KDIGO, esta paciente tem IRA? Qual estágio e quais critérios foram preenchidos?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Não tem IRA: o aumento de 0,3 mg/dL é o valor mínimo do critério; como o paciente está assintomático, não se aplica sem sintomas concomitantes.</li><li onclick="SO(this,true)"><span class="ql">B)</span>Sim, IRA Estágio 1 por dois critérios simultâneos: (1) ↑Cr ≥0,3 mg/dL em 48h (de 0,9→1,2 = +0,3 mg/dL exatos em 48h); (2) DU &lt;0,5 mL/kg/h por ≥6h (0,46 mL/kg/h × 7h). KDIGO não exige sintomas — é critério laboratorial e de débito urinário.</li><li onclick="SO(this,false)"><span class="ql">C)</span>Não tem IRA: para KDIGO é obrigatório ↑Cr ≥1,5× o basal (1,5 × 0,9 = 1,35 mg/dL); a creatinina de 1,2 não atingiu esse limiar.</li><li onclick="SO(this,false)"><span class="ql">D)</span>IRA apenas pelo critério de débito urinário; o ↑Cr de 0,3 mg/dL não conta porque o valor absoluto está dentro da faixa normal para a idade.</li><li onclick="SO(this,false)"><span class="ql">E)</span>KDIGO exige ambos os critérios (Cr E DU) simultaneamente por ≥12h; como só temos 7h de seguimento do DU, os critérios ainda não foram preenchidos.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> KDIGO diagnostica IRA pela presença de QUALQUER UM dos três critérios. Aqui, dois estão preenchidos: (1) ↑Cr ≥0,3 mg/dL em 48h — de 0,9 para 1,2 mg/dL = +0,3 mg/dL em exatamente 48h, atingindo o limiar mínimo; (2) DU &lt;0,5 mL/kg/h por ≥6h — 0,46 mL/kg/h por 7h consecutivas preenche o critério. O terceiro critério (↑Cr ≥1,5× basal em 7 dias: 1,2/0,9 = 1,33×) não foi atingido. O KDIGO não exige sintomas. Estágio 1.</p><p><strong>Por que C está errada:</strong> o critério de 0,3 mg/dL em 48h é independente do critério de 1,5× basal; basta preencher UM dos três.</p><p><strong>Por que D está errada:</strong> o valor absoluto dentro da faixa de referência laboratorial não anula o critério KDIGO que se baseia em variação em relação ao basal.</p><p><strong>Por que E está errada:</strong> KDIGO requer presença de QUALQUER UM dos critérios, não todos simultaneamente; DU &lt;0,5 mL/kg/h por ≥6h já é suficiente isoladamente.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">17</div><div class="qm"><span>🏷 Dor Torácica — Dissecção de Aorta vs IAM</span><span>🔬 Avaliação</span><span>⚡ MD</span></div></div>
+<div class="qv">Mulher de 54 anos, hipertensa mal controlada, dor torácica anterior de início súbito irradiando imediatamente para o dorso, descrita como "rasgamento", máxima já no início. PA: membro superior direito 182/104 mmHg; membro superior esquerdo 138/88 mmHg. FC 106 bpm. Sopro diastólico em foco aórtico. Raio-X: alargamento do mediastino superior. ECG: ritmo sinusal com alterações inespecíficas de repolarização, sem supra de ST.</div>
+<p class="qs2">Qual a conduta mais adequada e o raciocínio que a fundamenta, considerando o princípio de não errar o diagnóstico que mata?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Iniciar anticoagulação plena com heparina imediatamente, pois o ECG sem supra de ST não afasta IAMSSST; a assimetria de PA é inespecífica.</li><li onclick="SO(this,true)"><span class="ql">B)</span>Angio-TC de tórax urgente é o exame de eleição para confirmar dissecção de aorta; a anticoagulação deve ser EVITADA antes de excluir dissecção — ela pode ampliar o hematoma adventicial e precipitar tamponamento ou hemotórax maciço. Assimetria de PA ≥20 mmHg entre MMSS + sopro diastólico aórtico agudo + alargamento mediastinal + dor em rasgamento são altamente específicos de dissecção tipo A.</li><li onclick="SO(this,false)"><span class="ql">C)</span>Trombólise sistêmica é indicada porque o sopro diastólico novo com dor torácica indica IAMCSST equivalente com BRE novo mascarado.</li><li onclick="SO(this,false)"><span class="ql">D)</span>ECG sem supra exclui IAMCSST; o sopro diastólico indica valvopatia crônica sem relação com o evento agudo; alta com analgesia e controle pressórico.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Ecocardiograma transesofágico é o único exame indicado; angio-TC contraindica-se pela possível nefropatia por contraste na hipertensa.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> o conjunto — dor em "rasgamento" de início máximo + irradiação imediata ao dorso + assimetria de PA ≥20 mmHg entre MMSS + sopro diastólico aórtico novo + alargamento mediastinal — configura probabilidade pré-teste muito alta de dissecção de aorta tipo A. A anticoagulação é CONTRAINDICADA antes de excluir dissecção, pois pode ampliar o hematoma intramural e precipitar tamponamento cardíaco ou hemotórax maciço. A angio-TC é o padrão-ouro diagnóstico e não deve ser postergada.</p><p><strong>Por que A está errada:</strong> anticoagular sem excluir dissecção é o erro mais perigoso neste contexto — potencialmente fatal.</p><p><strong>Por que C está errada:</strong> não há critérios de IAMCSST ou BRE novo; trombólise em dissecção pode ser catastrófica.</p><p><strong>Por que D está errada:</strong> o sopro diastólico aórtico agudo em contexto de dor torácica súbita com alargamento mediastinal NÃO é valvopatia crônica — é regurgitação aórtica aguda por comprometimento do anel aórtico na dissecção tipo A.</p><p><strong>Por que E está errada:</strong> a angio-TC é o padrão-ouro e não tem contraindicação absoluta pelo risco de nefropatia em emergência de dissecção; ETE é alternativa mas requer sedação e intubação.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">18</div><div class="qm"><span>🏷 Semiologia Respiratória — Derrame Pleural</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Mulher de 66 anos, com dispneia progressiva há 3 semanas. Ao exame: expansibilidade reduzida à esquerda; FTV abolido na base esquerda; macicez intensa à percussão em base esquerda; MV abolido em base esquerda; egofonia acima do nível da macicez; desvio de traqueia para a direita. SpO₂ 93%.</div>
+<p class="qs2">O desvio de traqueia para o lado contralateral em síndrome de derrame pleural volumoso indica:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Atelectasia do lobo inferior ipsilateral puxando a traqueia ipsilateralmente; a egofonia acima é consequência da consolidação adjacente.</li><li onclick="SO(this,false)"><span class="ql">B)</span>Pneumotórax hipertensivo contralateral; a hipersonoridade no lado oposto desvia a traqueia para o lado do derrame.</li><li onclick="SO(this,true)"><span class="ql">C)</span>Derrame pleural volumoso à esquerda comprime o pulmão ipsilateral e desloca o mediastino para o lado contralateral (direita), afastando a traqueia do lado da coleção — sinal de efeito de massa do derrame. Distingue-se do pneumotórax pela macicez (derrame = líquido) vs. hipersonoridade (pneumotórax = ar).</li><li onclick="SO(this,false)"><span class="ql">D)</span>Derrame exsudativo com aderências pleurais que tracionam a traqueia ipsilateralmente; a egofonia confirma foco de condensação adjacente.</li><li onclick="SO(this,false)"><span class="ql">E)</span>A egofonia acima do nível da macicez é inespecífica e não tem valor localizatório; o desvio de traqueia indica exclusivamente pneumotórax hipertensivo independente do lado da macicez.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> um derrame pleural volumoso exerce efeito de massa sobre o pulmão ipsilateral e sobre o mediastino, deslocando a traqueia para o lado <em>oposto</em> ao derrame. A egofonia acima do nível do derrame ocorre na interface líquido-ar (onde o parênquima comprimido transmite som de forma modificada). A macicez confirma coleção líquida (diferente da hipersonoridade do pneumotórax).</p><p><strong>Por que A está errada:</strong> atelectasia tracionaria a traqueia <em>ipsilateralmente</em> (colapso pulmão → mediastino se desloca para o mesmo lado).</p><p><strong>Por que B está errada:</strong> pneumotórax contralateral produziria hipersonoridade, não macicez no lado descrito.</p><p><strong>Por que D está errada:</strong> aderências pleurais do exsudato podem limitar o derrame, mas o desvio de traqueia ipsilateral ocorre na atelectasia, não no derrame volumoso livre.</p><p><strong>Por que E está errada:</strong> egofonia tem valor localizatório definido (transição ar/líquido ou condensação) e o desvio de traqueia para contralateral é de efeito de massa (derrame), não exclusivo de pneumotórax.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">19</div><div class="qm"><span>🏷 Cirrose / MASLD — Semiologia e Complicações</span><span>🔬 Análise</span><span>⚡ MD</span></div></div>
+<div class="qv">Homem de 48 anos, obeso (IMC 37), diabético, com hepatomegalia detectada em ultrassonografia de rotina. Ao exame físico: icterícia discreta, eritema palmar bilateral, telangectasias aracneiformes em tronco, ginecomastia, ascite com macicez móvel e piparote, circulação colateral abdominal em cabeça de medusa. Fígado difícil de palpar.</div>
+<p class="qs2">Qual o conjunto de achados que melhor caracteriza a fisiopatologia da cirrose hepática e diferencia semiologicamente insuficiência hepatocelular de hipertensão portal?</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>Icterícia + telangectasias + eritema palmar = hipertensão portal; ascite + cabeça de medusa + ginecomastia = insuficiência hepatocelular.</li><li onclick="SO(this,true)"><span class="ql">B)</span>Icterícia, eritema palmar, telangectasias e ginecomastia refletem insuficiência hepatocelular (↓ metabolismo do estrogênio, ↓ síntese albumina, ↓ conjugação bilirrubina); ascite, circulação colateral em cabeça de medusa e esplenomegalia refletem hipertensão portal (↑ pressão no sistema porta, reabertura de veias paraumbilicais, vasodilatação esplâncnica).</li><li onclick="SO(this,false)"><span class="ql">C)</span>Todos os achados refletem insuficiência hepatocelular; a hipertensão portal não produz sinais físicos detectáveis ao exame clínico.</li><li onclick="SO(this,false)"><span class="ql">D)</span>A cabeça de medusa é sinal de trombose de veia hepática (Budd-Chiari), não de hipertensão portal por cirrose.</li><li onclick="SO(this,false)"><span class="ql">E)</span>O fígado difícil de palpar em cirrótico avançado indica recuperação da função hepática, pois a fibrose regrediu.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: B</h5><p><strong>Por que B está correta:</strong> os achados da cirrose se dividem em dois grupos fisiopatológicos. <strong>Insuficiência hepatocelular</strong> (↓ função dos hepatócitos): icterícia (↓ conjugação de bilirrubina), eritema palmar e telangectasias (acúmulo de estrogênio não metabolizado → vasodilatação), ginecomastia (hiperestrogenismo relativo), leuconíquia, asterixis. <strong>Hipertensão portal</strong> (↑ pressão no sistema porta): ascite (↑ pressão hidrostática + hipoalbuminemia + SRAA), cabeça de medusa (reabertura de veias paraumbilicais), esplenomegalia (congestão esplênica), varizes esofágicas. O fígado pequeno/nodular na cirrose avançada reflete retração fibrosa — pior prognóstico, não recuperação.</p><p><strong>Por que A está errada:</strong> inverte completamente os grupos fisiopatológicos.</p><p><strong>Por que C está errada:</strong> a hipertensão portal produz achados físicos clássicos e identificáveis ao exame.</p><p><strong>Por que D está errada:</strong> cabeça de medusa é reabertura de veias paraumbilicais pela hipertensão portal — clássico da cirrose. Budd-Chiari teria hepatomegalia dolorosa sem circulação colateral típica.</p><p><strong>Por que E está errada:</strong> fígado pequeno e nodular na cirrose reflete retração fibrosa progressiva — sinal de doença avançada.</p></div>
+</div>
+
+<div class="qc">
+<div class="qh"><div class="qn">20</div><div class="qm"><span>🏷 Raciocínio Clínico Integrado — IMA Crônica Agudizada</span><span>🔬 Avaliação</span><span>⚡ MD</span></div></div>
+<div class="qv">Mulher de 63 anos, tabagista 38 maços-ano, hipertensa, com perda ponderal de 11 kg em 7 meses. Refere dor abdominal difusa iniciada 20–30 min após refeições, com duração de 1–2h e regressão espontânea; passou a comer menos por medo da dor (sitofobia). Endoscopias normais. Retorna ao PS com piora intensa da dor há 14h — agora contínua, sem relação com alimentação.</div>
+<p class="qs2">Considerando a integração fisiopatológica entre o quadro crônico e a piora aguda (acute-on-chronic), assinale a alternativa que melhor hierarquiza o raciocínio diagnóstico:</p>
+<ul class="qo"><li onclick="SO(this,false)"><span class="ql">A)</span>DII seronegativa com padrão pós-prandial atípico; a piora aguda indica crise inflamatória; iniciar corticosteroide imediatamente.</li><li onclick="SO(this,false)"><span class="ql">B)</span>SII com predomínio pós-prandial; a piora com dor contínua sugere pancreatite aguda; solicitar amilase e lipase antes de angio-TC.</li><li onclick="SO(this,true)"><span class="ql">C)</span>O quadro crônico é compatível com isquemia mesentérica crônica (angina intestinal por aterosclerose): tríade dor pós-prandial + sitofobia + perda ponderal com endoscopias normais; a piora aguda contínua sem relação alimentar configura trombose arterial sobre placa prévia (acute-on-chronic); conduta: angio-TC bifásica de emergência para definir grau de oclusão e estratégia de revascularização.</li><li onclick="SO(this,false)"><span class="ql">D)</span>Neoplasia de pâncreas com comprometimento do plexo celíaco; TC com protocolo pancreático antes da avaliação vascular.</li><li onclick="SO(this,false)"><span class="ql">E)</span>Aneurisma de aorta abdominal roto como complicação da aterosclerose; reparo cirúrgico de emergência do aneurisma é a conduta prioritária.</li></ul>
+<button class="gb" onclick="GB(this)">Ver Feedback Geral</button>
+<div class="gp"><h5>Gabarito: C</h5><p><strong>Por que C está correta:</strong> a tríade da isquemia mesentérica crônica (angina intestinal): dor pós-prandial + sitofobia + perda ponderal progressiva com endoscopias normais. Mecanismo: aterosclerose estenótica mesentérica → incapacidade de aumentar o fluxo esplâncnico após refeição → isquemia intestinal funcional. A piora aguda (dor contínua, sem relação alimentar) é o sinal de alarme de trombose arterial sobre placa preexistente — acute-on-chronic. Angio-TC bifásica de emergência é mandatória.</p><p><strong>Por que A está errada:</strong> DII não causa sitofobia típica nem responde ao padrão pós-prandial isquêmico; endoscopias normais são mais consistentes com causa vascular.</p><p><strong>Por que B está errada:</strong> SII não causa perda ponderal de 11 kg; pancreatite aguda tem dor mais constante sem o padrão pós-prandial crônico descrito.</p><p><strong>Por que D está errada:</strong> câncer de pâncreas causa dor mais constante e irradiação dorsal progressiva; aqui a periodocidade pós-prandial com sitofobia por meses é muito mais específica de isquemia vascular.</p><p><strong>Por que E está errada:</strong> AAA roto cursa com instabilidade hemodinâmica + massa pulsátil — ausentes aqui; a piora da dor contínua sem esses sinais aponta para trombose mesentérica.</p></div>
+</div>
+</section>
+
+<footer style="text-align:center;padding:52px 0 24px;font-size:.75rem;color:#c6bdb0">
+  Caderno elaborado com base nos materiais e no perfil pedagógico do Prof. Dr. João Vítor Galo Esteves · Faculdade CENSUPEG · Medicina 2026/1<br>
+  Fontes: Porto 8ª ed. · Bates 12ª ed. · SBC 2025 · ACC/AHA 2026 · KDIGO 2012 · WSES IMA 2022 · SVS IMC 2021 · ESC HF 2021
+</footer>
+<script>
+function T(b,id){
+  b.closest('.card').querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));
+  b.closest('.card').querySelectorAll('.tp').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');document.getElementById(id).classList.add('on');
+}
+function SO(li,ok){
+  var p=li.closest('.qo');
+  if(p.querySelector('.C,.W'))return;
+  li.classList.add(ok?'C':'W');
+}
+function GB(b){
+  var p=b.nextElementSibling;
+  var o=p.style.display==='block';
+  p.style.display=o?'none':'block';
+  b.textContent=o?'Ver Feedback Geral':'Ocultar Feedback';
+}
+</script>
+</body></html>
+
